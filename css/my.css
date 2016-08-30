@@ -161,7 +161,7 @@
 .oops-fix .container {
 	box-sizing: border-box;
 	width: 90%;
-	margin: 0 auto 100px !important;
+	margin: 0 auto 120px !important;
 	padding: 4px;
 	border: 2px solid black;
 	background: #a3c644;
