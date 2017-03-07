@@ -376,7 +376,7 @@ code.css::after {
 	font-size: .75em;
 	color: #1a9cb0;
 }
-code.xml::after {
+/*code.xml::after {
 	content: "HTML";
 }
 code.css::after {
@@ -384,4 +384,4 @@ code.css::after {
 }
 code.less::after {
 	content: "LESS";
-}
+}*/

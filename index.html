@@ -378,35 +378,525 @@
 					<h2>Something new?</h2>
 				</section>
 
-				<section id="flexbox" data-state="flexbox">
-					<h2>Flexbox</h2>
-					<p class="fragment">Candidate Recommendation</p>
-					<p class="fragment"><a href="https://www.w3.org/TR/css-flexbox-1/" target="_blank">CSS Flexible Box Layout Module Level 1</a></p>
+				<!-- FLEX -->
+				<section class="stack flex">
+					<section class="red">
+						<h2>Flexbox</h2>
+						<p class="fragment">Candidate Recommendation, 26 May 2016</p>
+						<p class="fragment"><a href="https://www.w3.org/TR/css-flexbox-1/" target="_blank">CSS Flexible Box Layout Module Level 1</a></p>
+					</section>
+
+					<section id="flexbox-support" data-state="spec-support flexbox-support" data-background="url(assets/i/flexbox_2017.jpg)"></section>
+
+					<section class="red rule">
+						<h4>Flex-box rule</h4>
+						<pre><code class="hljs css">display: flex | inline-flex;</code></pre>
+					</section>
+					<section class="red inline-flex">
+						<h4>flex vs inline-flex</h4>
+						<div class="box">
+							<div>Lorem</div><div>ipsum</div><div>dolor</div><div>sit amet,</div>
+							<div>nec ei</div><div>probo</div><div>sanctus</div><div>interesset</div>
+						</div>
+						<div class="box">
+							<div>Lorem</div><div>ipsum</div><div>dolor</div><div>sit amet,</div>
+							<div>nec ei</div><div>probo</div><div>sanctus</div><div>interesset</div>
+						</div>
+					</section>
+					<section class="red">
+						<h4>Flex wrapper<small>(parent)</small> options</h4>
+					</section>
+					<section class="red axis">
+						<h4>Content flow</h4>
+						<div>
+							<div class="arrow main">
+								<span>Main axis</span>
+							</div>
+							<div class="arrow cross">
+								<span>Cross axis</span>
+							</div>
+						</div>
+					</section>
+					<section class="red direction">
+							<pre><code class="hljs css">			/* Main axis — horizontal */
+flex-direction: row(default);		/* left-to-right */
+flex-direction: row-reverse;		/* right-to-left */
+
+			/*  Main axis — vertical */
+flex-direction: column;			/* top-to-bottom */
+flex-direction: column-reverse;		/* bottom-to-top */</code></pre>
+						<div>
+							<div>
+								<p>horizontal main axis</p>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
+								</div>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
+								</div>
+							</div>
+							<div>
+								<p>vertical main axis</p>
+								<div>
+									<div class="box">
+										<div>1</div><div>2</div><div>3</div>
+									</div>
+									<div class="box">
+										<div>1</div><div>2</div><div>3</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="red wrap">
+						<h4>wrapping</h4>
+						<pre><code class="hljs css">flex-wrap: nowrap(default) | wrap | wrap-reverse</code></pre>
+						<div>
+							<small>default, w/o wrapping</small>
+							<div class="box">
+								<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+							</div>
+						</div>
+						<div>
+							<div>
+								<small>standart wrappping ttb</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+								</div>
+							</div>
+							<div>
+								<small>reverse wrappping btt</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="red flow">
+						<h4>Flex flow shorthand rule</h4>
+						<pre><code class="hljs css">flex-flow: flex-direction flex-wrap;</code></pre>
+						<div>
+							<small>row-reverse wrap-reverse</small>
+							<div class="box">
+								<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+							</div>
+						</div>
+					</section>
+					<section class="red justify-content">
+						<h4>Align on main axis</h4>
+						<pre><code class="hljs css">justify-content: flex-start(default)
+		 flex-end
+		 center
+		 space-between
+		 space-around;</code></pre>
+						<div>
+							<div>
+								<small>flex-start(default)</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div>
+								</div>
+							</div>
+							<div>
+								<small>flex-end</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<small>center</small>
+							<div class="box">
+								<div>1</div><div>2</div><div>3</div>
+							</div>
+						</div>
+						<div>
+							<div>
+								<small>space-between</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div>
+								</div>
+							</div>
+							<div>
+								<small>space-around</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="red align-items">
+						<h4>Align on cross axis</h4>
+						<pre><code class="hljs css">align-items: flex-start
+	     flex-end
+	     center
+	     baseline
+	     stretch(default);</code></pre>
+						<div>
+							<div>
+								<small>flex-start</small>
+								<div class="box">
+									<div>1</div><div>2</div>
+								</div>
+							</div>
+							<div>
+								<small>flex-end</small>
+								<div class="box">
+									<div>1</div><div>2</div>
+								</div>
+							</div>
+							<div>
+								<small>center</small>
+								<div class="box">
+									<div>1</div><div>2</div>
+								</div>
+							</div>
+							<div>
+								<small>baseline</small>
+								<div class="box">
+									<div>1</div><div>2</div>
+								</div>
+							</div>
+							<div>
+								<small>stretch(default)</small>
+								<div class="box">
+									<div>1</div><div>2</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="red">
+						<h4>Align on cross axis for multiline flexbox</h4>
+						<small>multiline flex = flex-wrap: wrap | wrap-reverse;</small>
+						<pre><code class="hljs css">align-content: flex-start
+	       flex-end
+	       center
+	       stretch(default)
+	       space-between
+	       space-around;</code></pre>
+					</section>
+					<section class="red align-content">
+						<div>
+							<div>
+								<small>flex-start</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+								</div>
+							</div>
+							<div>
+								<small>flex-end</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+								</div>
+							</div>
+							<div>
+								<small>center</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+								</div>
+							</div>
+							<div>
+								<small>stretch(default)</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+								</div>
+							</div>
+							<div>
+								<small>space-between</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+								</div>
+							</div>
+							<div>
+								<small>space-around</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="red">
+						<h4>Flex item<small>(child)</small> options</h4>
+					</section>
+					<section class="red order">
+						<h4>Order</h4>
+						<pre><code class="hljs css">order: number;</code></pre>
+						<div>
+							<div>
+								<small>normal ordered</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+								</div>
+							</div>
+							<div>
+								<small>custom ordered</small>
+								<div class="box">
+									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="red align-self">
+						<h4>Align for single item on cross axis</h4>
+						<pre><code class="hljs css">align-self: auto(default)
+	     flex-start
+	     flex-end
+	     center
+	     baseline
+	     stretch;</code></pre>
+						<div>
+							<div>
+								<small>flex-start</small>
+								<div class="box">
+									<div>1</div><div>2</div>
+								</div>
+							</div>
+							<div>
+								<small>flex-end</small>
+								<div class="box">
+									<div>1</div><div>2</div>
+								</div>
+							</div>
+							<div>
+								<small>center</small>
+								<div class="box">
+									<div>1</div><div>2</div>
+								</div>
+							</div>
+							<div>
+								<small>baseline</small>
+								<div class="box">
+									<div>1</div><div>2</div>
+								</div>
+							</div>
+							<div>
+								<small>stretch(default)</small>
+								<div class="box">
+									<div>1</div><div>2</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="red basis-grow-shrink">
+						<h4>item basis and grow/shrink factor</h4>
+						<div class="fragment flex-basis">
+							<pre><code class="hljs css">flex-basis: length;</code></pre>
+							<div class="box">
+								<div>200px</div><div>20px</div><div>150px</div>
+							</div>
+						</div>
+						<div class="fragment flex-grow">
+							<pre><code class="hljs css">flex-grow: n;</code></pre>
+							<div class="box">
+								<div>2</div><div>1</div><div>3</div>
+							</div>
+						</div>
+						<div class="fragment flex-shrink">
+							<pre><code class="hljs css">flex-shrink: n;</code></pre>
+							<div class="box">
+								<div>2</div><div>1</div><div>3</div>
+							</div>
+						</div>
+					</section>
+					<section class="red basis-grow-shrink-short">
+						<h4>shorthand rule for grow,shrink and basis</h4>
+						<pre><code class="hljs css">flex: flex-grow flex-shrink flex-basis; /* default - flex: 0 0 auto; */</code></pre>
+						<div class="box">
+							<div>2 | 1 | 100px</div><div>1 | 2 | 300px</div><div>2 | 1 | 100px</div>
+						</div>
+						<div class="box">
+							<div>2 | 1 | 500px</div><div>1 | 2 | 400px</div><div>2 | 1 | 300px</div>
+						</div>
+						<div class="fragment">
+							<div>
+								<p>grow factor</p>
+								<div>
+									<span><b>free space:</b> parent-width — &sum; flex-basis</span>
+								</div>
+								<div>
+									<b>grow-proportion:</b>
+									<div>
+										<span>flex-grow</span>
+										<span>&sum; flex-grow</span>
+									</div>
+								</div>
+								<div>
+									<p><b>item width on grow:</b></p>
+									<span>flex-basis + grow-proportion*free-space</span>
+								</div>
+							</div>
+							<div>
+								<p>shrink factor</p>
+								<div>
+									<span><b>free space:</b> parent-width — &sum; flex-basis</span>
+								</div>
+								<div>
+									<b>shrink-proportion:</b>
+									<div>
+										<span>flex-shrink*flex-basis</span>
+										<span>&sum; flex-shrink*flex-basis</span>
+									</div>
+								</div>
+								<div>
+									<p><b>item width on shrink:</b></p>
+									<span>flex-basis + shrink-proportion*free-space</span>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="red">
+						<h4>simple flex demo</h4>
+					</section>
+					<section class="red demo">
+						<h4>adaptive multicolumn layout w/ navbar</h4>
+						<div id="button-set">
+							<p><small>change size</small></p>
+							<span data-width="360px" data-size="small">small</span>
+							<span data-width="640px" data-size="middle">middle</span>
+							<span class="current" data-width="100%" data-size="large">large</span>
+						</div>
+						<div class="wrapper large" id="wrapper">
+							<header class="header">
+								<nav>
+									<ul class="navigation">
+										<li><span href="">Home</span></li>
+										<li><span href="">About</span></li>
+										<li><span href="">Products</span></li>
+										<li><span href="">Contact</span></li>
+									</ul>
+								</nav>
+							</header>
+							<article class="main">
+								<p>MAIN LOREM IPSUM</p>
+							</article>
+							<aside class="aside aside-1">ASIDE LOREM</aside>
+							<aside class="aside aside-2">ASIDE IPSUM</aside>
+							<footer class="footer">Footer</footer>
+						</div>
+					</section>
+					<section>
+						<div>Vadim Makeev (Opera) - Flexbox Gotcha | <a href="http://pepelsbey.net/pres/flexbox-gotcha/" target="_blank">pres</a>, <a href="https://vimeo.com/67011034" target="_blank">video</a></div>
+					</section>
 				</section>
+				<!-- /FLEX -->
 
-				<section id="flexbox-support" data-state="spec-support flexbox-support" data-background="url(assets/i/flexbox.jpg)"></section>
+				<!-- COLUMNS -->
+				<section class="stack columns">
+					<section class="red">
+						<h2>Columns</h2>
+						<p class="fragment">Candidate Recommendation, 12 April 2011</p>
+						<p class="fragment"><a href="https://www.w3.org/TR/css3-multicol/" target="_blank">CSS3 Multiple column layout</a></p>
+					</section>
+					<section id="column-support" data-state="spec-support column-support" data-background="url(assets/i/column_2017.jpg)"></section>
+					<section class="red rule">
+						<h4>Multi-columns rule</h4>
+						<pre><code class="hljs css">columns: column-width column-count;</code></pre>
+						<div>
+							<div>
+								<pre><code class="hljs css">column-count: 2;</code></pre>
+								<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh. Ut sodales nulla ut nisi ultrices dignissim. Praesent vitae dignissim velit. Ut ac scelerisque massa.</small>
+							</div>
+							<div>
+								<pre><code class="hljs css">columns-width: 100px;</code></pre>
+								<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh. Ut sodales nulla ut nisi ultrices dignissim. Praesent vitae dignissim velit. Ut ac scelerisque massa.</small>
+							</div>
+						</div>
+					</section>
+					<section class="red gap">
+						<h4>Columns gap</h4>
+						<pre><code class="hljs css">column-gap: length | normal; /* normal = 1em */</code></pre>
+						<div>
+							<pre><code class="hljs css">column-gap: 200px;</code></pre>
+							<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh. Ut sodales nulla ut nisi ultrices dignissim. Praesent vitae dignissim velit. Ut ac scelerisque massa. Phasellus vitae purus eget nisi gravida interdum. Morbi ultrices tortor in lectus cursus, et sodales arcu feugiat. Vestibulum vel tempor quam. Phasellus at commodo mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas nec congue velit, vitae blandit risus. Vivamus scelerisque in dui in tincidunt. Aliquam sed dui erat. Praesent urna nunc, tempor id tellus sed, suscipit iaculis sem.</small>
+						</div>
+					</section>
+					<section class="red separator">
+						<h4>Columns separator</h4>
+						<pre><code class="hljs css">column-rule: column-rule-width column-rule-style column-rule-color;</code></pre>
+						<div>
+							<pre><code class="hljs css">column-rule: 4px solid #464547;</code></pre>
+							<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh. Ut sodales nulla ut nisi ultrices dignissim. Praesent vitae dignissim velit. Ut ac scelerisque massa. Phasellus vitae purus eget nisi gravida interdum. Morbi ultrices tortor in lectus cursus, et sodales arcu feugiat. Vestibulum vel tempor quam. Phasellus at commodo mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas nec congue velit, vitae blandit risus. Vivamus scelerisque in dui in tincidunt. Aliquam sed dui erat. Praesent urna nunc, tempor id tellus sed, suscipit iaculis sem.</small>
+						</div>
+					</section>
+					<section class="red span">
+						<h4>Spanning columns</h4>
+						<pre><code class="hljs css">column-span: none | all;</code></pre>
+						<div>
+								<pre><code class="hljs css">h4 {
+    column-span: all;
+}</code></pre>
+							<div>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh.
+								<h4>yeah ... dat borin' lorem ipsum agn ... nafin' new</h4>
+								Ut sodales nulla ut nisi ultrices dignissim. Praesent vitae dignissim velit. Ut ac scelerisque massa. Phasellus vitae purus eget nisi gravida interdum. Morbi ultrices tortor in lectus cursus, et sodales arcu feugiat. Vestibulum vel tempor quam. Phasellus at commodo mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas nec congue velit, vitae blandit risus. Vivamus scelerisque in dui in tincidunt. Aliquam sed dui erat. Praesent urna nunc, tempor id tellus sed, suscipit iaculis sem.
+							</div>
+						</div>
+					</section>
+					<section class="red">
+						<h4>breaks sentences</h4>
+					</section>
+					<section class="red break">
+							<pre><code class="hljs css">break-after(break-before): auto | always | avoid
+			   left | right | page | column
+			   avoid-page | avoid-column;</code></pre>
+						<div class="fragment">
+							<pre><code class="hljs css">break-inside: auto | avoid | avoid-page | avoid-column;</code></pre>
+							<div>
+								<ul>
+									<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+									<li>Mauris eu risus.</li>
+									<li>Vestibulum auctor dapibus neque.</li>
+									<li>Consectetuer adipiscing elit.</li>
+									<li>Eu risus.</li>
+									<li>Vestibulum auctor dapibus neque.</li>
+									<li>Lorem ipsum dolor sit amet</li>
+									<li>Aliquam tincidunt mauris eu risus. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+									<li>Vestibulum auctor dapibus neque.</li>
+								</ul>
 
-				<section data-state="flexbox-info" id="flexbox-info">
-					<div>Vadim Makeev (Opera) - Flexbox Gotcha | <a href="http://pepelsbey.net/pres/flexbox-gotcha/" target="_blank">pres</a>, <a href="https://vimeo.com/67011034" target="_blank">video</a></div>
+								<ul>
+									<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+									<li>Mauris eu risus.</li>
+									<li>Vestibulum auctor dapibus neque.</li>
+									<li>Consectetuer adipiscing elit.</li>
+									<li>Eu risus.</li>
+									<li>Vestibulum auctor dapibus neque.</li>
+									<li>Lorem ipsum dolor sit amet</li>
+									<li>Aliquam tincidunt mauris eu risus. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+									<li>Vestibulum auctor dapibus neque.</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section class="red fill">
+						<h4>filling the space</h4>
+						<pre><code class="hljs css">column-fill: auto | balance;</code></pre>
+						<div>
+							<div>
+								<p>balance</p>
+								<div>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh.
+								</div>
+							</div>
+							<div>
+								<p>auto</p>
+								<div>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh.
+								</div>
+							</div>
+						</div>
+					</section>
 				</section>
-
-				<section id="column" data-state="column">
-					<h2>CSS Columns</h2>
-					<p class="fragment">Candidate Recommendation</p>
-					<p class="fragment"><a href="https://www.w3.org/TR/css3-multicol/" target="_blank">CSS3 Multiple column layout</a></p>
-				</section>
-
-				<section id="column-support" data-state="spec-support column-support" data-background="url(assets/i/column.jpg)"></section>
+				<!-- /COLUMNS -->
 
 				<section id="grid" data-state="grid">
 					<h2>CSS Grids</h2>
-					<p class="fragment">Working Draft</p>
+					<p class="fragment">Candidate Recommendation, 9 February 2017</p>
 					<p class="fragment"><a href="https://www.w3.org/TR/css3-grid-layout/" target="_blank">CSS Grid Layout Module Level 1</a></p>
 				</section>
 
-				<section id="grid-support" data-state="spec-support grid-support" data-background="url(assets/i/grid.jpg)"></section>
+				<section id="grid-support" data-state="spec-support grid-support" data-background="url(assets/i/grid_2017.jpg)"></section>
 
-				<section id="future" data-state="future" data-transition="fade"></section>
+				<!--<section id="future" data-state="future" data-transition="fade"></section>-->
 
 				<section id="thank-you" data-state="thank-you" data-transition="fade">
 					<h3>Thank you</h3>
