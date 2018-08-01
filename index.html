@@ -4,30 +4,33 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Layouts, The - EPAM RD Labs Lectures</title>
+		<title>Layouts</title>
 
-		<meta name="description" content="Lecture about different approaches for creating layouts">
+		<meta name="description" content="Frontend Course - EPAM @ Layouts">
 		<meta name="author" content="Yevhen Isakov">
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/epam.css" id="theme">
-		<link rel="stylesheet" href="css/my.css" />
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="stylesheet" href="css/my.css" />
 
-		<!-- Printing and PDF exports -->
+        <!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/user.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
 		</script>
 
 		<!--[if lt IE 9]>
@@ -39,914 +42,670 @@
 
 		<div class="reveal">
 
+			<!-- Any section element inside of this container is displayed as a slide -->
+
 			<div class="slides">
 
-				<section id="mainpage" data-state="mainpage" data-transition="fade">
-					<h1>Page Layouts, The</h1>
-					<h3>Yevhen Isakov</h3>
+				<section data-state="mainpage" data-transition="slide">
+					<h1>CSS Layouts</h1>
+					<br>
+					<h3>Ievgen Dmytrychenko and Yevhen Isakov</h3>
+					<time datetime="2018-01-20">30 July, 2018</time>
 				</section>
 
-				<section id="intro" data-state="intro" data-transition="fade">
-					<h3>From Simple to Complex</h3>
-				</section>
-
-				<section id="old-site" data-state="old-site" data-transition="fade"></section>
-
-				<section id="table-part" data-state="table-part">
-					<h3>Table-based markup</h3>
-				</section>
-
-				<section id="table-code-example" data-state="table-code-example" data-transition="fade">
-					<pre><code class="xml">&lt;table class="container" align="center"
-	bgcolor="#eee" cellpadding="0" cellspacing="5" width="90%"&gt;
-	&lt;tr&gt;
-		&lt;td colspan="3" bgcolor="#ccc" align="center"&gt;Header&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td class="left_part" width="300"&gt;
-			&lt;table border="2" cellpadding="3" width="100%"&gt;
-				&lt;tr&gt;&lt;td&gt;Menu&lt;/td&gt;&lt;/tr&gt;
-			&lt;/table&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td class="main_part" align="left" valign="top"&gt;
-			&lt;table width="100%" bgcolor="white" height="500"&gt;
-				&lt;tr&gt;&lt;td&gt;Breadcrumbs&lt;/td&gt;&lt;/tr&gt;
-			&lt;/table&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td class="right_part" width="200"&gt;
-			&lt;table cellpadding="3" valign="bottom"&gt;
-				&lt;tr&gt;&lt;td&gt;Advertise&lt;/td&gt;&lt;/tr&gt;
-			&lt;/table&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td colspan="3"&gt;Footer&lt;/td&gt;
-	&lt;/tr&gt;
-&lt;/table&gt;</code></pre>
-				</section>
-
-				<section data-state="mother-of-god" id="mother-of-god" data-transition="fade"></section>
-
-				<section id="table-code-example-2" data-state="table-code-example" data-transition="fade">
-					<pre><code class="xml">&lt;table class="container" align="center"
-	bgcolor="#eee" cellpadding="0" cellspacing="5" width="90%"&gt;
-	&lt;tr&gt;
-		&lt;td colspan="3" bgcolor="#ccc" align="center"&gt;Header&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td class="left_part" width="300"&gt;
-			&lt;table border="2" cellpadding="3" width="100%"&gt;
-				&lt;tr&gt;&lt;td&gt;Menu&lt;/td&gt;&lt;/tr&gt;
-			&lt;/table&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td class="main_part" align="left" valign="top"&gt;
-			&lt;table width="100%" bgcolor="white" height="500"&gt;
-				&lt;tr&gt;&lt;td&gt;Breadcrumbs&lt;/td&gt;&lt;/tr&gt;
-			&lt;/table&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td class="right_part" width="200"&gt;
-			&lt;table cellpadding="3" valign="bottom"&gt;
-				&lt;tr&gt;&lt;td&gt;Advertise&lt;/td&gt;&lt;/tr&gt;
-			&lt;/table&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td colspan="3"&gt;Footer&lt;/td&gt;
-	&lt;/tr&gt;
-&lt;/table&gt;</code></pre>
-				</section>
-
-				<section id="table-tags">
-					<h3>Tags</h3>
-					<div class="entities-container tags-container">
-						<div class="fragment">&lt;table&gt;</div>
-						<div class="fragment">&lt;tr&gt;</div>
-						<div class="fragment">&lt;th&gt; & &lt;td&gt;</div>
-						<div class="fragment">&lt;caption&gt;, &lt;col&gt;</div>
-						<div class="fragment">&lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;</div>
-					</div>
-				</section>
-
-				<section id="table-attrs">
-					<h3>Attributes</h3>
-					<div class="entities-container attrs-container">
-						<div class="fragment">width, height</div>
-						<div class="fragment">align, valign</div>
-						<div class="fragment">bgcolor</div>
-						<div class="fragment">...etc</div>
-						<div class="fragment">colspan, rowspan</div>
-					</div>
-				</section>
-
-				<!--section id="attrs-vs-css">
-					<table class="compare-table">
-						<tr>
-							<th class="compare-table__attr">Tag Attribute</th>
-							<th class="compare-table__css">CSS Rule</th>
-						</tr>
-						<tr>
-							<td>width</td>
-							<td>width</td>
-						</tr>
-						<tr>
-							<td>align</td>
-							<td>text-align</td>
-						</tr>
-						<tr>
-							<td>valign</td>
-							<td>vertical-align</td>
-						</tr>
-						<tr>
-							<td>bgcolor</td>
-							<td>background-color</td>
-						</tr>
-					</table>
-				</section-->
-
-				<section data-state="table-conclusion" id="table-conclusion">
-					<h3>Tables</h3>
-					<div class="conclusion conclusion-good">
-						<div class="fragment">Dead simple</div>
-						<div class="fragment">Perfect compatibility</div>
-					</div>
-					<div class="conclusion conclusion-bad">
-						<div class="fragment">Overwritten code</div>
-						<div class="fragment">Bad rerformance</div>
-					</div>
-				</section>
-
-				<section data-state="tables-for-tables" id="tables-for-tables" data-transition="fade">
-					<h2>Tables are for table data</h2>
-				</section>
-
-				<section data-state="tables-for-tables-once-again" id="tables-for-tables-once-again" data-transition="fade">
-					<h2>Tables are for table data</h2>
-				</section>
-
-				<section data-state="div-based" id="div-based">
-					<h2>Div-based markup</h2>
-				</section>
-
-				<section data-state="div-markup-example" id="div-markup-example" data-transition="fade">
-					<pre><code class="xml">&lt;div class="container"&gt;
-	&lt;div class="header"&gt;Header&lt;/div&gt;
-	&lt;div class="content"&gt;
-		&lt;div class="left_part"&gt;
-			&lt;div class="menu"&gt;Menu&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;div class="right_part"&gt;
-			&lt;div class="advert"&gt;Advertise&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;div class="main_part"&gt;
-			&lt;div class="breadcrumbs"&gt;Breadcrumbs&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class="footer"&gt;Footer&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-				</section>
-
-				<section id="chuck-norris-approves" data-state="chuck-norris-approves" data-transition="fade"></section>
-
-				<section data-state="div-conclusion" id="div-conclusion">
-					<h3>Divs</h3>
-					<div class="conclusion conclusion-good">
-						<div class="fragment">Better performance</div>
-						<div class="fragment">Much less code</div>
-					</div>
-					<div class="conclusion conclusion-bad">
-						<div class="fragment">Bad compatibility</div>
-						<div class="fragment">A lot of unresolvable cases via pure CSS</div>
-					</div>
-				</section>
-
-				<section id="oops" data-state="oops" data-transition="fade">
-					<div class="container">
-						<div class="floated">float: left;</div>
-						<div class="non-floated">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad et in laboriosam! Esse, quaerat.</div>
-					</div>
-					<pre><code class="xml">&lt;div class="container"&gt;
-	&lt;div class="floated"&gt;float: left;&lt;/div&gt;
-	&lt;div class="non-floated"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore laboriosam minus molestias quae repudiandae?&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-					<pre><code class="css">.container {
-	background: #a3c644;
-	}
-
-.floated {
-	float: left;
-	background: #b22746;
-	}</code></pre>
-				</section>
-
-				<section id="wat" data-state="wat" data-transition="fade"></section>
-
-				<section data-state="float-question" id="float-question" data-transition="fade">
-					<h3>Float?</h3>
-					<div>Just <strong>clear</strong> it!</div>
-				</section>
-
-				<section id="evolution-of-clear" data-state="evolution-of-clear">
-					<h3>Evolution of <span>clear</span></h3>
+				<section data-state="agenda">
+					<h2>Agenda</h2>
 					<ul>
-						<li class="fragment">&lt;br clear="all" /&gt;</li>
-						<li class="fragment">&lt;div class="clear"&gt;&lt;/div&gt;</li>
-						<li class="fragment">.clear:after { }</li>
-						<li class="fragment">Micro-clearfix hack</li>
+						<li>Base html/css</li>
+						<li>What is page layout</li>
+						<li>Layout implementation</li>
 					</ul>
 				</section>
 
-				<section id="br-clear-all" data-state="clear-example">
-					<h3>&lt;br clear="all" /&gt;</h3>
-					<pre class="fragment"><code class="xml">&lt;div class="container"&gt;
-	&lt;div class="float-left"&gt;&lt;/div&gt;
-	&lt;div class="float-right"&gt;&lt;/div&gt;
-	&lt;br clear="all" /&gt;
-&lt;/div&gt;</code></pre>
+				<section>
+					<h2>Box Model</h2>
 				</section>
 
-				<section id="div-class-clear" data-state="clear-example">
-					<h3>&lt;div class="clear" /&gt;</h3>
-					<div class="fragment">
-						<pre><code class="xml">&lt;div class="container"&gt;
-	&lt;div class="float-left"&gt;&lt;/div&gt;
-	&lt;div class="float-right"&gt;&lt;/div&gt;
-	&lt;div class="clear"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-						<pre><code class="css">.clear {
-	clear: both;
-	}</code></pre>
+				<section>
+					<h2>Box parts</h2>
+					<img src="assets/i/box-model.png" alt="" width="700px" style="float: right">
+					<ul style="margin-top: 0">
+						<li>Content (css-props width, height)</li>
+						<li>Padding</li>
+						<li>Border</li>
+						<li>Margin</li>
+						<li><span style="color: red">But not outline</span><br>
+							(<a style="text-align: left" target="_blank" href="https://codepen.io/dmyievgen/pen/XBzqVN">Example with outline</a>)
+						</li>
+
+					</ul>
+
+				</section>
+
+				<section>
+					<div class="section-subtitle">
+						<div>box-sizing</div>
+						<div><span >
+							<span class="coloured-symbols coloured-symbols_blue">content-box</span> vs </span>
+							<span class="coloured-symbols coloured-symbols_blue ">border-box</span>
+						</div>
+					</div>
+					<!-- comparison -->
+					<div >
+						<div data-height="500"
+							 data-theme-id="0"
+							 data-slug-hash="wxPXvv"
+							 data-default-tab="css,result"
+							 data-user="dmyievgen" data-embed-version="2"
+							 data-pen-title="wxPXvv"
+							 class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/MQwjmY/">wxPXvv</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
 					</div>
 				</section>
 
-				<section id="clearfix-after" data-state="clear-example">
-					<h3>.clearfix:after</h3>
-					<div class="fragment">
-						<pre><code class="xml">&lt;div class="container clearfix"&gt;
-	&lt;div class="float-left"&gt;&lt;/div&gt;
-	&lt;div class="float-right"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-						<pre><code class="css">.clearfix:after {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visilibity: hidden;
-	}</code></pre>
-						</div>
+				<section>
+					<div class="section-subtitle">Margin-collapse</div>
+					<div >
+						<div data-height="500" data-theme-id="0" data-slug-hash="QQbdbO" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="QQbdbO" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/QQbdbO/">QQbdbO</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					</div>
 				</section>
 
-				<!--<section id="clearfix-ie-hack">
-					<h3>Old IE hack!</h3>
-					<pre><code class="css">.clearfix {
-	zoom: 1;
-	}</code></pre>
+				<section>
+					<div class="section-subtitle">Margin-collapse-type-2</div>
+					<div>
+						<div data-height="500"
+							 data-theme-id="0"
+							 data-slug-hash="EpQEzz"
+							 data-default-tab="css,result"
+							 data-user="dmyievgen" data-embed-version="2"
+							 data-pen-title="EpQEzz"
+							 class="codepen">
+						</div>
+					</div>
+				</section>
+
+
+
+				<!-- document flow -->
+				<section>
+					<h2>Document Flow</h2>
+				</section>
+
+				<section>
+					<h4>Block and inline elements</h4>
+					<p style="text-align: left"><b>Block elements</b></p>
+					<div style="text-align: left">
+						article, aside, div, footer, form, h1, h2, h3, h4, h5, h6, header, li, main, nav, ol, p, section, table, ul
+					</div>
+					<p style="text-align: left"><b>Inline elements</b></p>
+					<div style="text-align: left">
+						a, button, img, input, label, span, strong
+					</div>
+				</section>
+
+				<section>
+					<h3>Document <span class="coloured-symbols coloured-symbols_blue">flow</span></h3>
+					<div >Document flow is the arrangement of page elements as defined by positioning statements and the order of html statements; that is, how the different elements take up space and arrange themselves around each other.</div>
+					<img src="assets/i/doc-flow.jpg" alt="" width="700px">
+				</section>
+
+				<section>
+					<div class="section-subtitle">Block and inline elements</div>
+					<div data-height="500" data-theme-id="0" data-slug-hash="YpBYWE" data-default-tab="result" data-user="vend3tta" data-embed-version="2" data-pen-title="YpBYWE" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/YpBYWE/">YpBYWE</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">Inline-block elements</div>
+					<div data-height="500"
+						 data-theme-id="0"
+						 data-slug-hash="KBQeWp"
+						 data-default-tab="css,result"
+						 data-user="dmyievgen" data-embed-version="2"
+						 data-pen-title="KBQeWp"
+						 class="codepen">
+					</div>
+				</section>
+
+				<!-- end of document flow -->
+
+				<section data-state="positioning">
+					<h2>Positioning</h2>
+				</section>
+
+				<section>
+					<div class="section-subtitle">position: static</div>
+					<div >
+						<div data-height="500" data-theme-id="0" data-slug-hash="bBzLKw" data-default-tab="result" data-user="vend3tta" data-embed-version="2" data-pen-title="bBzLKw" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/bBzLKw/">bBzLKw</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
+					</div>
+					<div >
+						<div style="text-align: left;">The box is a normal box, laid out according to the normal flow. The 'top', 'right', 'bottom', and 'left' properties <strong>do not</strong> apply.</div>
+					</div>
+				</section>
+
+				<section data-transition="none">
+					<div class="section-subtitle">position: relative</div>
+					<div >
+						<div data-height="500" data-theme-id="0" data-slug-hash="bBzLmB" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="bBzLmB" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/bBzLmB/">bBzLmB</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
+					</div>
+				</section>
+
+				<section data-transition="none">
+					<div class="section-subtitle">position: relative</div>
+					<div data-height="500" data-theme-id="0" data-slug-hash="vybdqO" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="vybdqO" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/vybdqO/">vybdqO</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">position: absolute</div>
+					<div >
+						<div data-height="500" data-theme-id="0" data-slug-hash="aBXYNr" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="aBXYNr" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/aBXYNr/">aBXYNr</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
+					</div>
+				</section>
+
+				<section data-transition="none">
+					<div class="section-subtitle">position: absolute</div>
+					<div data-height="500" data-theme-id="0" data-slug-hash="pNGLdx" data-default-tab="result" data-user="vend3tta" data-embed-version="2" data-pen-title="pNGLdx" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/pNGLdx/">pNGLdx</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section data-transition="none">
+					<div class="section-subtitle">position: absolute</div>
+					<div data-height="500" data-theme-id="0" data-slug-hash="jVdzYp" data-default-tab="result" data-user="vend3tta" data-embed-version="2" data-pen-title="jVdzYp" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/jVdzYp/">jVdzYp</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">position: fixed</div>
+					<div >
+						<div data-height="500" data-theme-id="0" data-slug-hash="oYmqdx" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="oYmqdx" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/oYmqdx/">oYmqdx</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
+					</div>
+				</section>
+
+				<section>
+					<h3><span class="coloured-symbols coloured-symbols_blue">Z</span>-index</h3>
+					<div >
+						<img src="assets/i/z-index.gif" alt="">
+					</div>
+				</section>
+
+				<section>
+					<div data-height="500"
+						 data-theme-id="0"
+						 data-slug-hash="EpQRvX"
+						 data-default-tab="result"
+						 data-user="dmyievgen" data-embed-version="2"
+						 data-pen-title="EpQRvX"
+						 class="codepen">
+					</div>
+
+				</section>
+
+
+
+				<section>
+					<h3>Z-index notes</h3>
+					<ul>
+						<li >Element with non-static positioning always will be above static element.</li>
+						<li >Element with [positive] z-index always will be above element without it.</li>
+						<li >On the same level the last element will be the highest one.</li>
+						<li >Lower amount of z-index elements is better.</li>
+						<li >In most cases you actually <strong>do not</strong> need z-index.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>What is layout?</h2>
+				</section>
+
+				<section>
+					<h2>Layout</h2>
+					<div >General page blocks organization which defines structure of a page and positioning of its content.</div>
+					<img src="assets/i/layout-types.png">
+				</section>
+
+				<section>
+					<h2>Design grid</h2>
+					<img src="assets/i/grid2.jpg">
+				</section>
+
+				<section>
+					<h2>Layout implementation</h2>
+				</section>
+
+				<section>
+					<h2>Tables</h2>
+				</section>
+
+				<section>
+					<iframe height='500' scrolling='no' title='wpZJLQ' src='//codepen.io/vend3tta/embed/wpZJLQ/?height=500&theme-id=0&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/wpZJLQ/'>wpZJLQ</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
+					<div data-height="500"
+						 data-theme-id="0"
+						 data-slug-hash="Lewywy"
+						 data-default-tab="html,result"
+						 data-user="vend3tta"
+						 data-embed-version="2"
+						 data-pen-title="Lewywy"
+						 class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/Lewywy/">Lewywy</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">display: table-*</div>
+					<div >
+						<div data-height="500" data-theme-id="0" data-slug-hash="QQbyZw" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="QQbyZw" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/QQbyZw/">QQbyZw</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Floats</h2>
+				</section>
+
+				<section>
+					<div data-height="500" data-theme-id="0" data-slug-hash="KZOqbM" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="KZOqbM" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/KZOqbM/">KZOqbM</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<div data-height="500" data-theme-id="0" data-slug-hash="RxXgev" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="RxXgev" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/RxXgev/">RxXgev</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<iframe height='300' scrolling='no' title='zoejyw' src='//codepen.io/vend3tta/embed/zoejyw/?height=300&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/zoejyw/'>zoejyw</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
+					<iframe height='300' scrolling='no' title='ENrLMv' src='//codepen.io/vend3tta/embed/ENrLMv/?height=300&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/ENrLMv/'>ENrLMv</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
+					</iframe>
+
+					<div >
+						<iframe height='300' scrolling='no' title='MbLXgb' src='//codepen.io/vend3tta/embed/MbLXgb/?height=300&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/MbLXgb/'>MbLXgb</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
+						</iframe>
+					</div>
+				</section>
+
+				<section>
+					<h4>Float?</h4>
+					<h3 >Just <span class="coloured-symbols coloured-symbols_blue">clear</span> it</h3>
+				</section>
+
+				<section>
+					<div class="section-subtitle">&lt;div class="clear"&gt;&lt;/div&gt;</div>
+					<div >
+						<iframe height='265' scrolling='no' title='ZBwRbK' src='//codepen.io/vend3tta/embed/ZBwRbK/?height=500&theme-id=dark&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/ZBwRbK/'>ZBwRbK</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
+						</iframe>
+						<iframe height='265' scrolling='no' title='rWPKVw' src='//codepen.io/vend3tta/embed/rWPKVw/?height=500&theme-id=dark&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/rWPKVw/'>rWPKVw</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
+						</iframe>
+					</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">Micro-clearfix hack</div>
+					<div >
+						<div data-height="500" data-theme-id="0" data-slug-hash="goVxLb" data-default-tab="css" data-user="vend3tta" data-embed-version="2" data-pen-title="goVxLb" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/goVxLb/">goVxLb</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">Micro-clearfix hack</div>
+					<div data-height="265" data-theme-id="0" data-slug-hash="MbLXgb" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="MbLXgb" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/MbLXgb/">MbLXgb</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					<div >
+						<div data-height="265" data-theme-id="0" data-slug-hash="goVxer" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="goVxer" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/goVxer/">goVxer</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">More tips & tricks</div>
+				</section>
+
+				<section>
+					<div data-height="500" data-theme-id="0" data-slug-hash="vdOpdj" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="vdOpdj" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/vdOpdj/">vdOpdj</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<div data-height="300" data-theme-id="0" data-slug-hash="qxdpyP" data-default-tab="result" data-user="vend3tta" data-embed-version="2" data-pen-title="qxdpyP" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/qxdpyP/">qxdpyP</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					<div >
+						<div data-height="300" data-theme-id="0" data-slug-hash="EQjodm" data-default-tab="result" data-user="vend3tta" data-embed-version="2" data-pen-title="EQjodm" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/EQjodm/">EQjodm</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">overflow: hidden</div>
+					<div data-height="300" data-theme-id="0" data-slug-hash="qxdpyP" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="qxdpyP" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/qxdpyP/">qxdpyP</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					<div >
+						<div data-height="300" data-theme-id="0" data-slug-hash="RQPxqY" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="RQPxqY" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/RQPxqY/">RQPxqY</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">overflow: hidden</div>
+					<div data-height="300" data-theme-id="0" data-slug-hash="EQjodm" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="EQjodm" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/EQjodm/">EQjodm</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					<div >
+						<div data-height="300" data-theme-id="0" data-slug-hash="EQjorX" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="EQjorX" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/EQjorX/">EQjorX</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">overflow: hidden</div>
+					<div data-height="500" data-theme-id="0" data-slug-hash="QQbaow" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="QQbaow" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/QQbaow/">QQbaow</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">display: table</div>
+					<div data-height="300" data-theme-id="0" data-slug-hash="qxdpyP" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="qxdpyP" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/qxdpyP/">qxdpyP</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					<div >
+						<div data-height="300" data-theme-id="0" data-slug-hash="NyqXZW" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="NyqXZW" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/NyqXZW/">NyqXZW</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">display: table</div>
+					<div data-height="300" data-theme-id="0" data-slug-hash="EQjodm" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="EQjodm" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/EQjodm/">EQjodm</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					<div >
+						<div data-height="300" data-theme-id="0" data-slug-hash="rJVJVw" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="rJVJVw" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/rJVJVw/">rJVJVw</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">display: table</div>
+					<div data-height="300" data-theme-id="0" data-slug-hash="bLdLEN" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="bLdLEN" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/bLdLEN/">bLdLEN</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					<div >
+						<div data-height="300" data-theme-id="0" data-slug-hash="VQLXxj" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="VQLXxj" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/VQLXxj/">VQLXxj</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Notes</h3>
+					<div >Less code, but much more details</div>
+					<div >Unresolvable cases via pure CSS</div>
+				</section>
+
+				<section>
+					<div data-height="500" data-theme-id="0" data-slug-hash="qxdvpB" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="qxdvpB" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/qxdvpB/">qxdvpB</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<h2><span class="coloured-symbols coloured-symbols_blue">Flex</span>box</h2>
+				</section>
+
+				<section>
+					<div data-height="500" data-theme-id="0" data-slug-hash="vdOMQr" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="vdOMQr" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/vdOMQr/">vdOMQr</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section data-state="flex-axes"></section>
+
+				<section>
+					<h3>Flex-direction</h3>
+				</section>
+
+				<section>
+					<div class="section-subtitle">flex-direction: row</div>
+					<div data-height="500" data-theme-id="0" data-slug-hash="oEXVPb" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="oEXVPb" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/oEXVPb/">oEXVPb</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">flex-direction: column</div>
+					<div data-height="500" data-theme-id="0" data-slug-hash="oEXVab" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="oEXVab" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/oEXVab/">oEXVab</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">flex-direction: row-reverse</div>
+					<div data-height="500" data-theme-id="0" data-slug-hash="qxdvvb" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="qxdvvb" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/qxdvvb/">qxdvvb</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">flex-direction: column-reverse</div>
+					<div data-height="500" data-theme-id="0" data-slug-hash="mXJovm" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="mXJovm" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/mXJovm/">mXJovm</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<h3>Flex-wrap</h3>
+				</section>
+
+				<section>
+					<div class="section-subtitle">flex-wrap</div>
+					<div data-height="200" data-theme-id="0" data-slug-hash="xYGeLR" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="xYGeLR" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/xYGeLR/">xYGeLR</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					<div >
+						<div data-height="200" data-theme-id="0" data-slug-hash="MQwxdx" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="MQwxdx" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/MQwxdx/">MQwxdx</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					</div>
+					<div >
+						<div data-height="200" data-theme-id="0" data-slug-hash="RQPObg" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="RQPObg" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/RQPObg/">RQPObg</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>justify-content</h3>
+				</section>
+
+				<section>
+					<div class="section-subtitle">justify-content</div>
+					<div data-height="200" data-theme-id="0" data-slug-hash="wyaZBX" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="wyaZBX" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/wyaZBX/">wyaZBX</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					<div >
+						<p data-height="200" data-theme-id="0" data-slug-hash="BYNENx" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="BYNENx" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/BYNENx/">BYNENx</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+					</div>
+					<div >
+						<p data-height="200" data-theme-id="0" data-slug-hash="RQPOPZ" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="RQPOPZ" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/RQPOPZ/">RQPOPZ</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+					</div>
+				</section>
+
+				<!--<section>
+					<div class="section-subtitle">justify-content: flex-start</div>
+					<div data-height="500" data-theme-id="0" data-slug-hash="wyaZBX" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="wyaZBX" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/wyaZBX/">wyaZBX</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">justify-content: flex-end</div>
+					<p data-height="500" data-theme-id="0" data-slug-hash="BYNENx" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="BYNENx" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/BYNENx/">BYNENx</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<div class="section-subtitle">justify-content: center</div>
+					<p data-height="500" data-theme-id="0" data-slug-hash="RQPOPZ" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="RQPOPZ" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/RQPOPZ/">RQPOPZ</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>-->
+				<section>
+					<div class="section-subtitle">justify-content</div>
+					<p data-height="300" data-theme-id="0" data-slug-hash="jZPRPX" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="jZPRPX" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/jZPRPX/">jZPRPX</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+					<div >
+						<p data-height="300" data-theme-id="0" data-slug-hash="MQwRwd" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="MQwRwd" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/MQwRwd/">MQwRwd</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+					</div>
+				</section>
+
+				<!--<section>
+					<div class="section-subtitle">justify-content: space-between</div>
+					<p data-height="500" data-theme-id="0" data-slug-hash="jZPRPX" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="jZPRPX" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/jZPRPX/">jZPRPX</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<div class="section-subtitle">justify-content: space-around</div>
+					<p data-height="500" data-theme-id="0" data-slug-hash="MQwRwd" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="MQwRwd" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/MQwRwd/">MQwRwd</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 				</section>-->
 
-				<section id="micro-clearfix-hack" data-state="clear-example">
-					<h3>Micro-clearfix hack</h3>
-					<div class="fragment">
-						<pre><code class="xml">&lt;div class="container clearfix"&gt;
-	&lt;div class="float-left"&gt;&lt;/div&gt;
-	&lt;div class="float-right"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-						<pre><code class="css">.clearfix:before,
-.clearfix:after {
-	content: "";
-	display: table;
-	}
+				<section>
+					<h3>Align-items</h3>
+				</section>
 
-.clearfix:after {
-	clear: both;
-	}
-
-.clearfix {
-	zoom: 1;
-	}</code></pre>
+				<section>
+					<div class="section-subtitle">align-items</div>
+					<p data-height="300" data-theme-id="0" data-slug-hash="JpdVYK" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="JpdVYK" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/JpdVYK/">JpdVYK</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+					<div >
+						<p data-height="300" data-theme-id="0" data-slug-hash="KQpYdE" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="KQpYdE" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/KQpYdE/">KQpYdE</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 					</div>
 				</section>
 
-				<section id="oops-fix" data-state="oops-fix">
-					<div class="container clearfix">
-						<div class="floated">float: left;</div>
-						<div class="non-floated">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad et in laboriosam! Esse, quaerat.</div>
-					</div>
-						<pre><code class="xml">&lt;div class="container clearfix"&gt;
-	&lt;div class="floated"&gt;float: left;&lt;/div&gt;
-	&lt;div class="non-floated"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore laboriosam minus molestias quae repudiandae?&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-						<pre><code class="css">.container {
-	background: #a3c644;
-	}
-.floated {
-	float: left;
-	background: #b22746;
-	}
-.clearfix::after {
-	content: "";
-	display: table;
-	clear: both;
-	}</code></pre>
-				</section>
-
-				<section id="context-formatting" data-state="context-formatting">
-					<h2>Context formatting</h2>
-					<div>Part of CSS rendering, page region with default positioning blocks within. Elements from different context can not affect each other.</div>
-					<p class="fragment"><a href="https://www.w3.org/TR/CSS21/visuren.html#normal-flow" target="_blank">Visual Formatting Model - W3C</a></p>
-				</section>
-
-				<section id="context-reasons" data-state="context-reasons">
-					<h3>New context causes due to</h3>
-					<ul>
-						<li class="fragment">Float</li>
-						<li class="fragment">Inline-block elements</li>
-						<li class="fragment">Table-* display</li>
-						<li class="fragment">Overflow <span class="mark">(not visible)</span></li>
-						<li class="fragment">Position <span class="mark">(absolute or fixed)</span></li>
-						<li class="fragment">Flex elements</li>
-					</ul>
-				</section>
-
-				<section id="smth-new" data-state="smth-new" data-transition="fade">
-					<h2>Something new?</h2>
-				</section>
-
-				<!-- FLEX -->
-				<section class="stack flex">
-					<section class="red">
-						<h2>Flexbox</h2>
-						<p class="fragment">Candidate Recommendation, 26 May 2016</p>
-						<p class="fragment"><a href="https://www.w3.org/TR/css-flexbox-1/" target="_blank">CSS Flexible Box Layout Module Level 1</a></p>
-					</section>
-
-					<section id="flexbox-support" data-state="spec-support flexbox-support" data-background="url(assets/i/flexbox-2018.jpg)"></section>
-					<section id="flexbox-support" data-state="spec-support flexbox-support" data-background="url(assets/i/flexbox_2017.08.jpg)"></section>
-
-					<section class="red rule">
-						<h4>Flex-box rule</h4>
-						<pre><code class="hljs css">display: flex | inline-flex;</code></pre>
-					</section>
-					<section class="red inline-flex">
-						<h4>flex vs inline-flex</h4>
-						<div class="box">
-							<div>Lorem</div><div>ipsum</div><div>dolor</div><div>sit amet,</div>
-							<div>nec ei</div><div>probo</div><div>sanctus</div><div>interesset</div>
-						</div>
-						<div class="box">
-							<div>Lorem</div><div>ipsum</div><div>dolor</div><div>sit amet,</div>
-							<div>nec ei</div><div>probo</div><div>sanctus</div><div>interesset</div>
-						</div>
-					</section>
-					<section class="red">
-						<h4>Flex wrapper<small>(parent)</small> options</h4>
-					</section>
-					<section class="red axis">
-						<h4>Content flow</h4>
-						<div>
-							<div class="arrow main">
-								<span>Main axis</span>
-							</div>
-							<div class="arrow cross">
-								<span>Cross axis</span>
-							</div>
-						</div>
-					</section>
-					<section class="red direction">
-							<pre><code class="hljs css">			/* Main axis — horizontal */
-flex-direction: row(default);		/* left-to-right */
-flex-direction: row-reverse;		/* right-to-left */
-
-			/*  Main axis — vertical */
-flex-direction: column;			/* top-to-bottom */
-flex-direction: column-reverse;		/* bottom-to-top */</code></pre>
-						<div>
-							<div>
-								<p>horizontal main axis</p>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
-								</div>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
-								</div>
-							</div>
-							<div>
-								<p>vertical main axis</p>
-								<div>
-									<div class="box">
-										<div>1</div><div>2</div><div>3</div>
-									</div>
-									<div class="box">
-										<div>1</div><div>2</div><div>3</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
-					<section class="red wrap">
-						<h4>wrapping</h4>
-						<pre><code class="hljs css">flex-wrap: nowrap(default) | wrap | wrap-reverse</code></pre>
-						<div>
-							<small>default, w/o wrapping</small>
-							<div class="box">
-								<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
-							</div>
-						</div>
-						<div>
-							<div>
-								<small>standart wrappping ttb</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
-								</div>
-							</div>
-							<div>
-								<small>reverse wrappping btt</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
-								</div>
-							</div>
-						</div>
-					</section>
-					<section class="red flow">
-						<h4>Flex flow shorthand rule</h4>
-						<pre><code class="hljs css">flex-flow: flex-direction flex-wrap;</code></pre>
-						<div>
-							<small>row-reverse wrap-reverse</small>
-							<div class="box">
-								<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
-							</div>
-						</div>
-					</section>
-					<section class="red justify-content">
-						<h4>Align on main axis</h4>
-						<pre><code class="hljs css">justify-content: flex-start(default)
-		 flex-end
-		 center
-		 space-between
-		 space-around;</code></pre>
-						<div>
-							<div>
-								<small>flex-start(default)</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div>
-								</div>
-							</div>
-							<div>
-								<small>flex-end</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<small>center</small>
-							<div class="box">
-								<div>1</div><div>2</div><div>3</div>
-							</div>
-						</div>
-						<div>
-							<div>
-								<small>space-between</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div>
-								</div>
-							</div>
-							<div>
-								<small>space-around</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div>
-								</div>
-							</div>
-						</div>
-					</section>
-					<section class="red align-items">
-						<h4>Align on cross axis</h4>
-						<pre><code class="hljs css">align-items: flex-start
-	     flex-end
-	     center
-	     baseline
-	     stretch(default);</code></pre>
-						<div>
-							<div>
-								<small>flex-start</small>
-								<div class="box">
-									<div>1</div><div>2</div>
-								</div>
-							</div>
-							<div>
-								<small>flex-end</small>
-								<div class="box">
-									<div>1</div><div>2</div>
-								</div>
-							</div>
-							<div>
-								<small>center</small>
-								<div class="box">
-									<div>1</div><div>2</div>
-								</div>
-							</div>
-							<div>
-								<small>baseline</small>
-								<div class="box">
-									<div>1</div><div>2</div>
-								</div>
-							</div>
-							<div>
-								<small>stretch(default)</small>
-								<div class="box">
-									<div>1</div><div>2</div>
-								</div>
-							</div>
-						</div>
-					</section>
-					<section class="red">
-						<h4>Align on cross axis for multiline flexbox</h4>
-						<small>multiline flex = flex-wrap: wrap | wrap-reverse;</small>
-						<pre><code class="hljs css">align-content: flex-start
-	       flex-end
-	       center
-	       stretch(default)
-	       space-between
-	       space-around;</code></pre>
-					</section>
-					<section class="red align-content">
-						<div>
-							<div>
-								<small>flex-start</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
-								</div>
-							</div>
-							<div>
-								<small>flex-end</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
-								</div>
-							</div>
-							<div>
-								<small>center</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
-								</div>
-							</div>
-							<div>
-								<small>stretch(default)</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
-								</div>
-							</div>
-							<div>
-								<small>space-between</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
-								</div>
-							</div>
-							<div>
-								<small>space-around</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
-								</div>
-							</div>
-						</div>
-					</section>
-					<section class="red">
-						<h4>Flex item<small>(child)</small> options</h4>
-					</section>
-					<section class="red order">
-						<h4>Order</h4>
-						<pre><code class="hljs css">order: number;</code></pre>
-						<div>
-							<div>
-								<small>normal ordered</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
-								</div>
-							</div>
-							<div>
-								<small>custom ordered</small>
-								<div class="box">
-									<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
-								</div>
-							</div>
-						</div>
-					</section>
-					<section class="red align-self">
-						<h4>Align for single item on cross axis</h4>
-						<pre><code class="hljs css">align-self: auto(default)
-	     flex-start
-	     flex-end
-	     center
-	     baseline
-	     stretch;</code></pre>
-						<div>
-							<div>
-								<small>flex-start</small>
-								<div class="box">
-									<div>1</div><div>2</div>
-								</div>
-							</div>
-							<div>
-								<small>flex-end</small>
-								<div class="box">
-									<div>1</div><div>2</div>
-								</div>
-							</div>
-							<div>
-								<small>center</small>
-								<div class="box">
-									<div>1</div><div>2</div>
-								</div>
-							</div>
-							<div>
-								<small>baseline</small>
-								<div class="box">
-									<div>1</div><div>2</div>
-								</div>
-							</div>
-							<div>
-								<small>stretch(default)</small>
-								<div class="box">
-									<div>1</div><div>2</div>
-								</div>
-							</div>
-						</div>
-					</section>
-					<section class="red basis-grow-shrink">
-						<h4>item basis and grow/shrink factor</h4>
-						<div class="fragment flex-basis">
-							<pre><code class="hljs css">flex-basis: length;</code></pre>
-							<div class="box">
-								<div>200px</div><div>20px</div><div>150px</div>
-							</div>
-						</div>
-						<div class="fragment flex-grow">
-							<pre><code class="hljs css">flex-grow: n;</code></pre>
-							<div class="box">
-								<div>2</div><div>1</div><div>3</div>
-							</div>
-						</div>
-						<div class="fragment flex-shrink">
-							<pre><code class="hljs css">flex-shrink: n;</code></pre>
-							<div class="box">
-								<div>2</div><div>1</div><div>3</div>
-							</div>
-						</div>
-					</section>
-					<section class="red basis-grow-shrink-short">
-						<h4>shorthand rule for grow,shrink and basis</h4>
-						<pre><code class="hljs css">flex: flex-grow flex-shrink flex-basis; /* default - flex: 0 0 auto; */</code></pre>
-						<div class="box">
-							<div>2 | 1 | 100px</div><div>1 | 2 | 300px</div><div>2 | 1 | 100px</div>
-						</div>
-						<div class="box">
-							<div>2 | 1 | 500px</div><div>1 | 2 | 400px</div><div>2 | 1 | 300px</div>
-						</div>
-						<div class="fragment">
-							<div>
-								<p>grow factor</p>
-								<div>
-									<span><b>free space:</b> parent-width — &sum; flex-basis</span>
-								</div>
-								<div>
-									<b>grow-proportion:</b>
-									<div>
-										<span>flex-grow</span>
-										<span>&sum; flex-grow</span>
-									</div>
-								</div>
-								<div>
-									<p><b>item width on grow:</b></p>
-									<span>flex-basis + grow-proportion*free-space</span>
-								</div>
-							</div>
-							<div>
-								<p>shrink factor</p>
-								<div>
-									<span><b>free space:</b> parent-width — &sum; flex-basis</span>
-								</div>
-								<div>
-									<b>shrink-proportion:</b>
-									<div>
-										<span>flex-shrink*flex-basis</span>
-										<span>&sum; flex-shrink*flex-basis</span>
-									</div>
-								</div>
-								<div>
-									<p><b>item width on shrink:</b></p>
-									<span>flex-basis + shrink-proportion*free-space</span>
-								</div>
-							</div>
-						</div>
-					</section>
-					<!--<section class="red">
-						<h4>simple flex demo</h4>
-					</section>
-					<section class="red demo">
-						<h4>adaptive multicolumn layout w/ navbar</h4>
-						<div id="button-set">
-							<p><small>change size</small></p>
-							<span data-width="360px" data-size="small">small</span>
-							<span data-width="640px" data-size="middle">middle</span>
-							<span class="current" data-width="100%" data-size="large">large</span>
-						</div>
-						<div class="wrapper large" id="wrapper">
-							<header class="header">
-								<nav>
-									<ul class="navigation">
-										<li><span href="">Home</span></li>
-										<li><span href="">About</span></li>
-										<li><span href="">Products</span></li>
-										<li><span href="">Contact</span></li>
-									</ul>
-								</nav>
-							</header>
-							<article class="main">
-								<p>MAIN LOREM IPSUM</p>
-							</article>
-							<aside class="aside aside-1">ASIDE LOREM</aside>
-							<aside class="aside aside-2">ASIDE IPSUM</aside>
-							<footer class="footer">Footer</footer>
-						</div>
-					</section>-->
-					<section>
-						<div>Vadim Makeev (Opera) - Flexbox Gotcha | <a href="http://pepelsbey.net/pres/flexbox-gotcha/" target="_blank">pres</a>, <a href="https://vimeo.com/67011034" target="_blank">video</a></div>
-					</section>
-				</section>
-				<!-- /FLEX -->
-
-				<!-- COLUMNS -->
-				<section class="stack columns">
-					<section class="red">
-						<h2>Columns</h2>
-						<p class="fragment">Candidate Recommendation, 12 April 2011</p>
-						<p class="fragment"><a href="https://www.w3.org/TR/css3-multicol/" target="_blank">CSS3 Multiple column layout</a></p>
-					</section>
-					<section id="column-support" data-state="spec-support column-support" data-background="url(assets/i/columns-2018.jpg)"></section>
-					<section id="column-support" data-state="spec-support column-support" data-background="url(assets/i/column_2017.08.jpg)"></section>
-					<section class="red rule">
-						<h4>Multi-columns rule</h4>
-						<pre><code class="hljs css">columns: column-width column-count;</code></pre>
-						<div>
-							<div>
-								<pre><code class="hljs css">column-count: 2;</code></pre>
-								<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh. Ut sodales nulla ut nisi ultrices dignissim. Praesent vitae dignissim velit. Ut ac scelerisque massa.</small>
-							</div>
-							<div>
-								<pre><code class="hljs css">columns-width: 100px;</code></pre>
-								<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh. Ut sodales nulla ut nisi ultrices dignissim. Praesent vitae dignissim velit. Ut ac scelerisque massa.</small>
-							</div>
-						</div>
-					</section>
-					<section class="red gap">
-						<h4>Columns gap</h4>
-						<pre><code class="hljs css">column-gap: length | normal; /* normal = 1em */</code></pre>
-						<div>
-							<pre><code class="hljs css">column-gap: 200px;</code></pre>
-							<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh. Ut sodales nulla ut nisi ultrices dignissim. Praesent vitae dignissim velit. Ut ac scelerisque massa. Phasellus vitae purus eget nisi gravida interdum. Morbi ultrices tortor in lectus cursus, et sodales arcu feugiat. Vestibulum vel tempor quam. Phasellus at commodo mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas nec congue velit, vitae blandit risus. Vivamus scelerisque in dui in tincidunt. Aliquam sed dui erat. Praesent urna nunc, tempor id tellus sed, suscipit iaculis sem.</small>
-						</div>
-					</section>
-					<section class="red separator">
-						<h4>Columns separator</h4>
-						<pre><code class="hljs css">column-rule: column-rule-width column-rule-style column-rule-color;</code></pre>
-						<div>
-							<pre><code class="hljs css">column-rule: 4px solid #464547;</code></pre>
-							<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh. Ut sodales nulla ut nisi ultrices dignissim. Praesent vitae dignissim velit. Ut ac scelerisque massa. Phasellus vitae purus eget nisi gravida interdum. Morbi ultrices tortor in lectus cursus, et sodales arcu feugiat. Vestibulum vel tempor quam. Phasellus at commodo mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas nec congue velit, vitae blandit risus. Vivamus scelerisque in dui in tincidunt. Aliquam sed dui erat. Praesent urna nunc, tempor id tellus sed, suscipit iaculis sem.</small>
-						</div>
-					</section>
-					<section class="red span">
-						<h4>Spanning columns</h4>
-						<pre><code class="hljs css">column-span: none | all;</code></pre>
-						<div>
-								<pre><code class="hljs css">h4 {
-    column-span: all;
-}</code></pre>
-							<div>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh.
-								<h4>yeah ... dat borin' lorem ipsum agn ... nafin' new</h4>
-								Ut sodales nulla ut nisi ultrices dignissim. Praesent vitae dignissim velit. Ut ac scelerisque massa. Phasellus vitae purus eget nisi gravida interdum. Morbi ultrices tortor in lectus cursus, et sodales arcu feugiat. Vestibulum vel tempor quam. Phasellus at commodo mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas nec congue velit, vitae blandit risus. Vivamus scelerisque in dui in tincidunt. Aliquam sed dui erat. Praesent urna nunc, tempor id tellus sed, suscipit iaculis sem.
-							</div>
-						</div>
-					</section>
-					<!--<section class="red">
-						<h4>breaks sentences</h4>
-					</section>
-					<section class="red break">
-							<pre><code class="hljs css">break-after(break-before): auto | always | avoid
-			   left | right | page | column
-			   avoid-page | avoid-column;</code></pre>
-						<div class="fragment">
-							<pre><code class="hljs css">break-inside: auto | avoid | avoid-page | avoid-column;</code></pre>
-							<div>
-								<ul>
-									<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-									<li>Mauris eu risus.</li>
-									<li>Vestibulum auctor dapibus neque.</li>
-									<li>Consectetuer adipiscing elit.</li>
-									<li>Eu risus.</li>
-									<li>Vestibulum auctor dapibus neque.</li>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Aliquam tincidunt mauris eu risus. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-									<li>Vestibulum auctor dapibus neque.</li>
-								</ul>
-
-								<ul>
-									<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-									<li>Mauris eu risus.</li>
-									<li>Vestibulum auctor dapibus neque.</li>
-									<li>Consectetuer adipiscing elit.</li>
-									<li>Eu risus.</li>
-									<li>Vestibulum auctor dapibus neque.</li>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Aliquam tincidunt mauris eu risus. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-									<li>Vestibulum auctor dapibus neque.</li>
-								</ul>
-							</div>
-						</div>
-					</section>
-					<section class="red fill">
-						<h4>filling the space</h4>
-						<pre><code class="hljs css">column-fill: auto | balance;</code></pre>
-						<div>
-							<div>
-								<p>balance</p>
-								<div>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh.
-								</div>
-							</div>
-							<div>
-								<p>auto</p>
-								<div>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque turpis eu dui porttitor auctor. Cras gravida augue est, eget euismod nisi finibus eget. Pellentesque at ipsum vitae metus consequat iaculis id id nibh.
-								</div>
-							</div>
-						</div>
-					</section>-->
-				</section>
-				<!-- /COLUMNS -->
-
-				<section id="grid" data-state="grid">
-					<h2>CSS Grids</h2>
-					<p class="fragment">Candidate Recommendation, 9 February 2017c</p>
-					<p class="fragment"><a href="https://www.w3.org/TR/css3-grid-layout/" target="_blank">CSS Grid Layout Module Level 1</a></p>
-				</section>
-
-				<section id="grid-support" data-state="spec-support grid-support" data-background="url(assets/i/grid-2018.jpg)"></section>
-				<section id="grid-support" data-state="spec-support grid-support" data-background="url(assets/i/grid_2017.08.jpg)"></section>
-
-				<!--<section id="future" data-state="future" data-transition="fade"></section>-->
-
-				<section id="thank-you" data-state="thank-you" data-transition="fade">
-					<h3>Thank you</h3>
-					<div class="author">
-						<img class="author-avatar" src="assets/i/avatar.jpg" alt="" />
-						<div class="author-main">
-							<div class="author-name">Yevhen Isakov</div>
-							<div class="author-job">Frontend Dev @ EPAM Systems</div>
-							<div class="author-contacts">
-								<div class="author-contacts_twitter"><a href="https://twitter.com/is4kov" target="_blank">@is4kov</a></div>
-							</div>
-						</div>
+				<section>
+					<div class="section-subtitle">align-items</div>
+					<p data-height="300" data-theme-id="0" data-slug-hash="yvNrYW" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="yvNrYW" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/yvNrYW/">yvNrYW</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+					<div >
+						<p data-height="300" data-theme-id="0" data-slug-hash="RQPOrL" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="RQPOrL" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/RQPOrL/">RQPOrL</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 					</div>
 				</section>
 
+				<section>
+					<div class="section-subtitle">align-items</div>
+					<div >
+						<p data-height="300" data-theme-id="0" data-slug-hash="PQqgZR" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="PQqgZR" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/PQqgZR/">PQqgZR</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+					</div>
+				</section>
+
+				<!--<section>
+					<div class="section-subtitle">align-items: flex-start</div>
+					<p data-height="500" data-theme-id="0" data-slug-hash="JpdVYK" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="JpdVYK" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/JpdVYK/">JpdVYK</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<div class="section-subtitle">align-items: flex-end</div>
+					<p data-height="500" data-theme-id="0" data-slug-hash="KQpYdE" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="KQpYdE" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/KQpYdE/">KQpYdE</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<div class="section-subtitle">align-items: center</div>
+					<p data-height="500" data-theme-id="0" data-slug-hash="yvNrYW" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="yvNrYW" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/yvNrYW/">yvNrYW</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<div class="section-subtitle">align-items: baseline</div>
+					<p data-height="500" data-theme-id="0" data-slug-hash="RQPOrL" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="RQPOrL" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/RQPOrL/">RQPOrL</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<div class="section-subtitle">align-items: stretch</div>
+					<p data-height="500" data-theme-id="0" data-slug-hash="PQqgZR" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="PQqgZR" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/PQqgZR/">PQqgZR</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>-->
+
+				<section>
+					<h3>Order</h3>
+				</section>
+
+				<section>
+					<div class="section-subtitle">Custom order</div>
+					<p data-height="500" data-theme-id="0" data-slug-hash="zRGXqG" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="zRGXqG" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/zRGXqG/">zRGXqG</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<h3>Notes</h3>
+					<div >First of all, Flexbox is about positioining and alignment element within container</div>
+					<div >Much more powerful than floats & tables, but for different use</div>
+				</section>
+
+				<section>
+					<h3>Summary</h3>
+					<div  style="font-size:2em">
+						<span>Grids</span>
+						<span > + Flexbox</span>
+					</div>
+				</section>
+
+				<section>
+					<h2>Thanks!</h2>
+					<div><a href="mailto:Yevhen_Isakov@epam.com">Yevhen_Isakov@epam.com</a></div>
+				</section>
 			</div>
 
-		</div>
+			<!--
 
+normal example - https://codepen.io/vend3tta/pen/vdOpdj
+
+example with background - https://codepen.io/vend3tta/pen/qxdpyP
+example with more content - https://codepen.io/vend3tta/pen/EQjodm
+
+overflow: hidden fixes
+
+example background with of:h - https://codepen.io/vend3tta/pen/RQPxqY
+example with more content - https://codepen.io/vend3tta/pen/EQjorX
+
+overflow: hidden problems
+
+example with problem - https://codepen.io/vend3tta/pen/QQbaow
+
+display: table
+
+again paste pens with examples
+
+background fix - https://codepen.io/vend3tta/pen/NyqXZW
+more content fix - https://codepen.io/vend3tta/pen/rJVJVw
+
+display: table troubles
+
+example with problem - https://codepen.io/vend3tta/pen/bLdLEN
+https://codepen.io/vend3tta/pen/VQLXxj
+
+
+-----------------------------------
+
+FORK FROM https://codepen.io/vend3tta/pen/MQwxdx
+
+
+flex - https://codepen.io/vend3tta/pen/oEXVPb
+
+flex-direction
+
+row - https://codepen.io/vend3tta/pen/oEXVPb
+column - https://codepen.io/vend3tta/pen/oEXVab
+row-reverse - https://codepen.io/vend3tta/pen/qxdvvb
+column-reverse - https://codepen.io/vend3tta/pen/mXJovm
+
+flex-wrap
+
+nowrap - https://codepen.io/vend3tta/pen/xYGeLR
+wrap - https://codepen.io/vend3tta/pen/MQwxdx
+wrap-reverse - https://codepen.io/vend3tta/pen/RQPObg
+
+justify-content
+
+flex-start - https://codepen.io/vend3tta/pen/wyaZBX
+flex-end - https://codepen.io/vend3tta/pen/BYNENx
+center - https://codepen.io/vend3tta/pen/RQPOPZ
+space-between - https://codepen.io/vend3tta/pen/jZPRPX
+space-around - https://codepen.io/vend3tta/pen/MQwRwd
+
+align-items
+
+flex-start - https://codepen.io/vend3tta/pen/JpdVYK
+flex-end - https://codepen.io/vend3tta/pen/KQpYdE
+center - https://codepen.io/vend3tta/pen/yvNrYW
+baseline - https://codepen.io/vend3tta/pen/RQPOrL
+stretch - https://codepen.io/vend3tta/pen/PQqgZR
+
+order - https://codepen.io/vend3tta/pen/zRGXqG
+
+-->
+
+		</div>
+		<script async src="//production-assets.codepen.io/assets/embed/ei.js"></script>
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
+			// Full list of configuration options available here:
+			// //github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
+				controls: false,
 				progress: true,
 				history: true,
 				center: true,
-				slideNumber: true,
+                slideNumber: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+                transitionSpeed: 'fast',
 
-				// Optional reveal.js plugins
+				// Parallax scrolling
+				// parallaxBackgroundImage: '//s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
 
 		</script>
-
+        <script>
+            Reveal.configure({backgroundTransition: 'fade'});
+        </script>
 	</body>
 </html>
