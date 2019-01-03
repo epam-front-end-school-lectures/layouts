@@ -17,10 +17,7 @@
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/epam.css" id="theme">
 
-        <link rel="stylesheet" href="css/my.css" />
-
-        <!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/user.css">
+		<link rel="stylesheet" href="css/my.css" />
 
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
@@ -32,54 +29,41 @@
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
 			}
 		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
 	</head>
 
 	<body>
 
 		<div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-
 			<div class="slides">
 
 				<section data-state="mainpage" data-transition="slide">
 					<h1>CSS Layouts</h1>
 					<br>
-					<h3>Ievgen Dmytrychenko and Yevhen Isakov</h3>
-					<time datetime="2018-01-20">30 July, 2018</time>
+					<h3>Mariia Tarasiuk</h3>
 				</section>
 
 				<section data-state="agenda">
-					<h2>Agenda</h2>
-					<ul>
-						<li>Base html/css</li>
-						<li>What is page layout</li>
-						<li>Layout implementation</li>
-					</ul>
+					<h3>Agenda</h3>
+          <div data-state="agenda" style="margin-left:30%;">
+						<ul>
+							<li class="fragment">Basic layout terminology</li>
+							<li class="fragment">Layout implementation</li>
+							<li class="fragment">Flex box</li>
+							<li class="fragment">Grid</li>
+						</ul>
+					</div>
 				</section>
-
 				<section>
 					<h2>Box Model</h2>
-				</section>
-
-				<section>
-					<h2>Box parts</h2>
 					<img src="assets/i/box-model.png" alt="" width="700px" style="float: right">
 					<ul style="margin-top: 0">
-						<li>Content (css-props width, height)</li>
+						<li>Content</li>
 						<li>Padding</li>
 						<li>Border</li>
 						<li>Margin</li>
-						<li><span style="color: red">But not outline</span><br>
-							(<a style="text-align: left" target="_blank" href="https://codepen.io/dmyievgen/pen/XBzqVN">Example with outline</a>)
-						</li>
-
+						<li><span style="color: red">But not outline</span></li>
 					</ul>
-
 				</section>
 
 				<section>
@@ -90,56 +74,23 @@
 							<span class="coloured-symbols coloured-symbols_blue ">border-box</span>
 						</div>
 					</div>
-					<!-- comparison -->
 					<div >
-						<div data-height="500"
-							 data-theme-id="0"
-							 data-slug-hash="wxPXvv"
-							 data-default-tab="css,result"
-							 data-user="dmyievgen" data-embed-version="2"
-							 data-pen-title="wxPXvv"
-							 class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/MQwjmY/">wxPXvv</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-					</div>
+					<p data-height="395" data-theme-id="0" data-slug-hash="MZEYZR" data-default-tab="css,result" data-user="mariatar" data-pen-title="box-model" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/MZEYZR/">box-model</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+					<!-- <script async src="https://static.codepen.io/assets/embed/ei.js"></script> -->
 				</section>
 
 				<section>
-					<div class="section-subtitle">Margin-collapse</div>
-					<div >
-						<div data-height="500" data-theme-id="0" data-slug-hash="QQbdbO" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="QQbdbO" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/QQbdbO/">QQbdbO</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-					</div>
-				</section>
-
-				<section>
-					<div class="section-subtitle">Margin-collapse-type-2</div>
-					<div>
-						<div data-height="500"
-							 data-theme-id="0"
-							 data-slug-hash="EpQEzz"
-							 data-default-tab="css,result"
-							 data-user="dmyievgen" data-embed-version="2"
-							 data-pen-title="EpQEzz"
-							 class="codepen">
-						</div>
-					</div>
-				</section>
-
-
-
-				<!-- document flow -->
-				<section>
-					<h2>Document Flow</h2>
-				</section>
-
-				<section>
-					<h4>Block and inline elements</h4>
-					<p style="text-align: left"><b>Block elements</b></p>
-					<div style="text-align: left">
-						article, aside, div, footer, form, h1, h2, h3, h4, h5, h6, header, li, main, nav, ol, p, section, table, ul
-					</div>
-					<p style="text-align: left"><b>Inline elements</b></p>
-					<div style="text-align: left">
-						a, button, img, input, label, span, strong
-					</div>
+					<h3>Document Flow</h3>
+					<table>
+						<tr>
+							<th>Block elements</th>
+							<th>Inline elements</th>
+						</tr>
+						<tr>
+							<td>header, footer, main, aside, form, h1 ... h6, nav, ol, ul, li, p, section, article, div, table</td>
+							<td>a, button, img, input, label, span, strong...</td>
+						</tr>
+					</table>
 				</section>
 
 				<section>
@@ -150,22 +101,14 @@
 
 				<section>
 					<div class="section-subtitle">Block and inline elements</div>
-					<div data-height="500" data-theme-id="0" data-slug-hash="YpBYWE" data-default-tab="result" data-user="vend3tta" data-embed-version="2" data-pen-title="YpBYWE" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/YpBYWE/">YpBYWE</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
+					<div data-height="500" data-theme-id="0" data-slug-hash="YpBYWE" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="YpBYWE" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/YpBYWE/">YpBYWE</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
 				</section>
 
 				<section>
 					<div class="section-subtitle">Inline-block elements</div>
-					<div data-height="500"
-						 data-theme-id="0"
-						 data-slug-hash="KBQeWp"
-						 data-default-tab="css,result"
-						 data-user="dmyievgen" data-embed-version="2"
-						 data-pen-title="KBQeWp"
-						 class="codepen">
-					</div>
+					<p data-height="365" data-theme-id="0" data-slug-hash="zyEGRo" data-default-tab="html,result" data-user="mariatar" data-pen-title="inline-block-elements" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/zyEGRo/">inline-block-elements</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<!-- <script async src="https://static.codepen.io/assets/embed/ei.js"></script> -->
 				</section>
-
-				<!-- end of document flow -->
 
 				<section data-state="positioning">
 					<h2>Positioning</h2>
@@ -189,8 +132,8 @@
 				</section>
 
 				<section data-transition="none">
-					<div class="section-subtitle">position: relative</div>
-					<div data-height="500" data-theme-id="0" data-slug-hash="vybdqO" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="vybdqO" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/vybdqO/">vybdqO</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
+					<div class="section-subtitle">position: absolute</div>
+					<div data-height="500" data-theme-id="0" data-slug-hash="pNGLdx" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="pNGLdx" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/pNGLdx/">pNGLdx</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
 				</section>
 
 				<section>
@@ -202,12 +145,7 @@
 
 				<section data-transition="none">
 					<div class="section-subtitle">position: absolute</div>
-					<div data-height="500" data-theme-id="0" data-slug-hash="pNGLdx" data-default-tab="result" data-user="vend3tta" data-embed-version="2" data-pen-title="pNGLdx" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/pNGLdx/">pNGLdx</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
-				</section>
-
-				<section data-transition="none">
-					<div class="section-subtitle">position: absolute</div>
-					<div data-height="500" data-theme-id="0" data-slug-hash="jVdzYp" data-default-tab="result" data-user="vend3tta" data-embed-version="2" data-pen-title="jVdzYp" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/jVdzYp/">jVdzYp</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
+					<div data-height="500" data-theme-id="0" data-slug-hash="jVdzYp" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="jVdzYp" class="codepen">See the Pen <a href="//codepen.io/vend3tta/pen/jVdzYp/">jVdzYp</a> by vend3tta (<a href="//codepen.io/vend3tta">@vend3tta</a>) on <a href="//codepen.io">CodePen</a>.</div>
 				</section>
 
 				<section>
@@ -233,20 +171,21 @@
 						 data-pen-title="EpQRvX"
 						 class="codepen">
 					</div>
-
 				</section>
 
-
-
 				<section>
-					<h3>Z-index notes</h3>
+					<h3>z-index notes</h3>
 					<ul>
 						<li >Element with non-static positioning always will be above static element.</li>
-						<li >Element with [positive] z-index always will be above element without it.</li>
+						<li >Element with <strong>positive</strong> z-index always will be above element without it.</li>
 						<li >On the same level the last element will be the highest one.</li>
 						<li >Lower amount of z-index elements is better.</li>
 						<li >In most cases you actually <strong>do not</strong> need z-index.</li>
 					</ul>
+				</section>
+				<section>
+					<h3>cheatsheet</h3>
+					<img src="assets/i/new-stacking-order.png" alt="new stacking order" height="500px">
 				</section>
 
 				<section>
@@ -258,11 +197,11 @@
 					<div >General page blocks organization which defines structure of a page and positioning of its content.</div>
 					<img src="assets/i/layout-types.png">
 				</section>
-
+<!-- 
 				<section>
 					<h2>Design grid</h2>
 					<img src="assets/i/grid2.jpg">
-				</section>
+				</section> -->
 
 				<section>
 					<h2>Layout implementation</h2>
@@ -271,28 +210,32 @@
 				<section>
 					<h2>Tables</h2>
 				</section>
+					
+					<section>
+						<iframe height='600' scrolling='no' title='wpZJLQ' src='https://codepen.io/vend3tta/embed/wpZJLQ/?height=500&theme-id=0&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/wpZJLQ/'>wpZJLQ</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
+						</iframe>
+					</section>
+					
+					<section>
+						<div data-height="600"
+						data-theme-id="0"
+						data-slug-hash="Lewywy"
+						data-default-tab="html,result"
+						data-user="vend3tta"
+						data-embed-version="2"
+						data-pen-title="Lewywy"
+						class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/Lewywy/">Lewywy</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					</section>
+					
+					<section>
+						<div class="section-subtitle">table-like display on &lt;div&gt; s</div>
+						<div >
+							<div data-height="600" data-theme-id="0" data-slug-hash="QQbyZw" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="QQbyZw" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/QQbyZw/">QQbyZw</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+						</div>
+					</section>
 
 				<section>
-					<iframe height='500' scrolling='no' title='wpZJLQ' src='//codepen.io/vend3tta/embed/wpZJLQ/?height=500&theme-id=0&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/wpZJLQ/'>wpZJLQ</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
-					</iframe>
-				</section>
-
-				<section>
-					<div data-height="500"
-						 data-theme-id="0"
-						 data-slug-hash="Lewywy"
-						 data-default-tab="html,result"
-						 data-user="vend3tta"
-						 data-embed-version="2"
-						 data-pen-title="Lewywy"
-						 class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/Lewywy/">Lewywy</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-				</section>
-
-				<section>
-					<div class="section-subtitle">display: table-*</div>
-					<div >
-						<div data-height="500" data-theme-id="0" data-slug-hash="QQbyZw" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="QQbyZw" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/QQbyZw/">QQbyZw</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-					</div>
+					<img src="assets/i/table-layout.gif" alt="" height="600px">
 				</section>
 
 				<section>
@@ -300,24 +243,24 @@
 				</section>
 
 				<section>
-					<div data-height="500" data-theme-id="0" data-slug-hash="KZOqbM" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="KZOqbM" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/KZOqbM/">KZOqbM</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					<div data-height="700" data-theme-id="0" data-slug-hash="KZOqbM" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="KZOqbM" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/KZOqbM/">KZOqbM</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
 				</section>
 
 				<section>
-					<div data-height="500" data-theme-id="0" data-slug-hash="RxXgev" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="RxXgev" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/RxXgev/">RxXgev</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
+					<div data-height="700" data-theme-id="0" data-slug-hash="RxXgev" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="RxXgev" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/RxXgev/">RxXgev</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
 				</section>
 
 				<section>
-					<iframe height='300' scrolling='no' title='zoejyw' src='//codepen.io/vend3tta/embed/zoejyw/?height=300&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/zoejyw/'>zoejyw</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
+					<iframe height='300' scrolling='no' title='zoejyw' src='https://codepen.io/vend3tta/embed/zoejyw/?height=300&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/zoejyw/'>zoejyw</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
 					</iframe>
 				</section>
 
 				<section>
-					<iframe height='300' scrolling='no' title='ENrLMv' src='//codepen.io/vend3tta/embed/ENrLMv/?height=300&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/ENrLMv/'>ENrLMv</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
+					<iframe height='300' scrolling='no' title='ENrLMv' src='https://codepen.io/vend3tta/embed/ENrLMv/?height=300&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/ENrLMv/'>ENrLMv</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
 					</iframe>
 
 					<div >
-						<iframe height='300' scrolling='no' title='MbLXgb' src='//codepen.io/vend3tta/embed/MbLXgb/?height=300&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/MbLXgb/'>MbLXgb</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
+						<iframe height='300' scrolling='no' title='MbLXgb' src='https://codepen.io/vend3tta/embed/MbLXgb/?height=300&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/MbLXgb/'>MbLXgb</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
 						</iframe>
 					</div>
 				</section>
@@ -330,26 +273,17 @@
 				<section>
 					<div class="section-subtitle">&lt;div class="clear"&gt;&lt;/div&gt;</div>
 					<div >
-						<iframe height='265' scrolling='no' title='ZBwRbK' src='//codepen.io/vend3tta/embed/ZBwRbK/?height=500&theme-id=dark&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/ZBwRbK/'>ZBwRbK</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
+						<iframe height='265' scrolling='no' title='ZBwRbK' src='https://codepen.io/vend3tta/embed/ZBwRbK/?height=500&theme-id=dark&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/ZBwRbK/'>ZBwRbK</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
 						</iframe>
-						<iframe height='265' scrolling='no' title='rWPKVw' src='//codepen.io/vend3tta/embed/rWPKVw/?height=500&theme-id=dark&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/rWPKVw/'>rWPKVw</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
+						<iframe height='265' scrolling='no' title='rWPKVw' src='https://codepen.io/vend3tta/embed/rWPKVw/?height=500&theme-id=dark&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='//codepen.io/vend3tta/pen/rWPKVw/'>rWPKVw</a> by vend3tta (<a href='//codepen.io/vend3tta'>@vend3tta</a>) on <a href='//codepen.io'>CodePen</a>.
 						</iframe>
 					</div>
 				</section>
 
 				<section>
 					<div class="section-subtitle">Micro-clearfix hack</div>
-					<div >
-						<div data-height="500" data-theme-id="0" data-slug-hash="goVxLb" data-default-tab="css" data-user="vend3tta" data-embed-version="2" data-pen-title="goVxLb" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/goVxLb/">goVxLb</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-					</div>
-				</section>
-
-				<section>
-					<div class="section-subtitle">Micro-clearfix hack</div>
-					<div data-height="265" data-theme-id="0" data-slug-hash="MbLXgb" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="MbLXgb" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/MbLXgb/">MbLXgb</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-					<div >
-						<div data-height="265" data-theme-id="0" data-slug-hash="goVxer" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="goVxer" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/goVxer/">goVxer</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-					</div>
+					<p data-height="265" data-theme-id="0" data-slug-hash="OrxymP" data-default-tab="html,result" data-user="mariatar" data-pen-title="micro-clear-fix" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/OrxymP/">micro-clear-fix</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+					<!-- <script async src="https://static.codepen.io/assets/embed/ei.js"></script> -->
 				</section>
 
 				<section>
@@ -357,29 +291,10 @@
 				</section>
 
 				<section>
-					<div data-height="500" data-theme-id="0" data-slug-hash="vdOpdj" data-default-tab="html,result" data-user="vend3tta" data-embed-version="2" data-pen-title="vdOpdj" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/vdOpdj/">vdOpdj</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-				</section>
-
-				<section>
-					<div data-height="300" data-theme-id="0" data-slug-hash="qxdpyP" data-default-tab="result" data-user="vend3tta" data-embed-version="2" data-pen-title="qxdpyP" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/qxdpyP/">qxdpyP</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-					<div >
-						<div data-height="300" data-theme-id="0" data-slug-hash="EQjodm" data-default-tab="result" data-user="vend3tta" data-embed-version="2" data-pen-title="EQjodm" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/EQjodm/">EQjodm</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-					</div>
-				</section>
-
-				<section>
 					<div class="section-subtitle">overflow: hidden</div>
 					<div data-height="300" data-theme-id="0" data-slug-hash="qxdpyP" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="qxdpyP" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/qxdpyP/">qxdpyP</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
 					<div >
 						<div data-height="300" data-theme-id="0" data-slug-hash="RQPxqY" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="RQPxqY" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/RQPxqY/">RQPxqY</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-					</div>
-				</section>
-
-				<section>
-					<div class="section-subtitle">overflow: hidden</div>
-					<div data-height="300" data-theme-id="0" data-slug-hash="EQjodm" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="EQjodm" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/EQjodm/">EQjodm</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-					<div >
-						<div data-height="300" data-theme-id="0" data-slug-hash="EQjorX" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="EQjorX" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/EQjorX/">EQjorX</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
 					</div>
 				</section>
 
@@ -398,14 +313,6 @@
 
 				<section>
 					<div class="section-subtitle">display: table</div>
-					<div data-height="300" data-theme-id="0" data-slug-hash="EQjodm" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="EQjodm" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/EQjodm/">EQjodm</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-					<div >
-						<div data-height="300" data-theme-id="0" data-slug-hash="rJVJVw" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="rJVJVw" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/rJVJVw/">rJVJVw</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-					</div>
-				</section>
-
-				<section>
-					<div class="section-subtitle">display: table</div>
 					<div data-height="300" data-theme-id="0" data-slug-hash="bLdLEN" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="bLdLEN" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/bLdLEN/">bLdLEN</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
 					<div >
 						<div data-height="300" data-theme-id="0" data-slug-hash="VQLXxj" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="VQLXxj" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/VQLXxj/">VQLXxj</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
@@ -413,9 +320,8 @@
 				</section>
 
 				<section>
-					<h3>Notes</h3>
-					<div >Less code, but much more details</div>
-					<div >Unresolvable cases via pure CSS</div>
+					<h3>But!</h3>
+					<div>sooooo much unsolved troubles left in CSS...</div>
 				</section>
 
 				<section>
@@ -430,7 +336,9 @@
 					<div data-height="500" data-theme-id="0" data-slug-hash="vdOMQr" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="vdOMQr" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/vdOMQr/">vdOMQr</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
 				</section>
 
-				<section data-state="flex-axes"></section>
+				<section data-state="flex-axes">
+					<img src="assets/i/flex-axes.png" alt="flex-axes">
+				</section>
 
 				<section>
 					<h3>Flex-direction</h3>
@@ -486,20 +394,6 @@
 					</div>
 				</section>
 
-				<!--<section>
-					<div class="section-subtitle">justify-content: flex-start</div>
-					<div data-height="500" data-theme-id="0" data-slug-hash="wyaZBX" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="wyaZBX" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/wyaZBX/">wyaZBX</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-				</section>
-
-				<section>
-					<div class="section-subtitle">justify-content: flex-end</div>
-					<p data-height="500" data-theme-id="0" data-slug-hash="BYNENx" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="BYNENx" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/BYNENx/">BYNENx</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-				</section>
-
-				<section>
-					<div class="section-subtitle">justify-content: center</div>
-					<p data-height="500" data-theme-id="0" data-slug-hash="RQPOPZ" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="RQPOPZ" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/RQPOPZ/">RQPOPZ</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-				</section>-->
 				<section>
 					<div class="section-subtitle">justify-content</div>
 					<p data-height="300" data-theme-id="0" data-slug-hash="jZPRPX" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="jZPRPX" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/jZPRPX/">jZPRPX</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
@@ -507,16 +401,6 @@
 						<p data-height="300" data-theme-id="0" data-slug-hash="MQwRwd" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="MQwRwd" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/MQwRwd/">MQwRwd</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 					</div>
 				</section>
-
-				<!--<section>
-					<div class="section-subtitle">justify-content: space-between</div>
-					<p data-height="500" data-theme-id="0" data-slug-hash="jZPRPX" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="jZPRPX" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/jZPRPX/">jZPRPX</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-				</section>
-
-				<section>
-					<div class="section-subtitle">justify-content: space-around</div>
-					<p data-height="500" data-theme-id="0" data-slug-hash="MQwRwd" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="MQwRwd" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/MQwRwd/">MQwRwd</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-				</section>-->
 
 				<section>
 					<h3>Align-items</h3>
@@ -545,31 +429,6 @@
 					</div>
 				</section>
 
-				<!--<section>
-					<div class="section-subtitle">align-items: flex-start</div>
-					<p data-height="500" data-theme-id="0" data-slug-hash="JpdVYK" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="JpdVYK" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/JpdVYK/">JpdVYK</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-				</section>
-
-				<section>
-					<div class="section-subtitle">align-items: flex-end</div>
-					<p data-height="500" data-theme-id="0" data-slug-hash="KQpYdE" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="KQpYdE" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/KQpYdE/">KQpYdE</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-				</section>
-
-				<section>
-					<div class="section-subtitle">align-items: center</div>
-					<p data-height="500" data-theme-id="0" data-slug-hash="yvNrYW" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="yvNrYW" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/yvNrYW/">yvNrYW</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-				</section>
-
-				<section>
-					<div class="section-subtitle">align-items: baseline</div>
-					<p data-height="500" data-theme-id="0" data-slug-hash="RQPOrL" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="RQPOrL" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/RQPOrL/">RQPOrL</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-				</section>
-
-				<section>
-					<div class="section-subtitle">align-items: stretch</div>
-					<p data-height="500" data-theme-id="0" data-slug-hash="PQqgZR" data-default-tab="css,result" data-user="vend3tta" data-embed-version="2" data-pen-title="PQqgZR" class="codepen">See the Pen <a href="https://codepen.io/vend3tta/pen/PQqgZR/">PQqgZR</a> by vend3tta (<a href="https://codepen.io/vend3tta">@vend3tta</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-				</section>-->
-
 				<section>
 					<h3>Order</h3>
 				</section>
@@ -580,23 +439,111 @@
 				</section>
 
 				<section>
-					<h3>Notes</h3>
+					<h2>Grid</h2>
+				</section>
+				
+				<section>
+					<h4>Basic grid terminology</h4>
+					<div style="margin: 0 auto; width: 50%">
+							<ul>
+								<li class="fragment">grid container</li>
+								<li class="fragment">element</li>
+								<li class="fragment">line</li>
+								<li class="fragment">track</li>
+								<li class="fragment">area</li>
+								<li class="fragment">cell</li>
+								<li class="fragment">fraction [fr] </li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<img src="assets/i/grid.png" alt="">
+					</section>
+
+				<section>
+					<h4 class="section-subtitle">dispaly: grid or dispaly: inline-grid</h4>
+					<p data-height="365" data-theme-id="0" data-slug-hash="JwrKRZ" data-default-tab="html,result" data-user="mariatar" data-pen-title="grid-layout" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/JwrKRZ/">grid-layout</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<h4>grid-template-columns and grid-template-rows</h4>
+					<img src="assets/i/grid-lines.png" alt="" height="450px">
+				</section>
+
+				<section>
+					<h4 class="section-subtitle">grid-aria and grid-template-arias</h4>
+					<p data-height="365" data-theme-id="0" data-slug-hash="LMzZKo" data-default-tab="css,result" data-user="mariatar" data-pen-title="grid-template-areas" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/LMzZKo/">grid-template-areas</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<h4>grid-template</h4>
+					<p>one to rule them all</p>
+					<p data-height="365" data-theme-id="0" data-slug-hash="GPMjpq" data-default-tab="css,result" data-user="mariatar" data-pen-title="grid-template" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/GPMjpq/">grid-template</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<h4>grid-column-gap + grid-row-gap = grid-gap</h4>
+					<p data-height="465" data-theme-id="0" data-slug-hash="mapGGJ" data-default-tab="css,result" data-user="mariatar" data-pen-title="grid-gap" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/mapGGJ/">grid-gap</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<h4>Aligning Content Along Row Axis</h4>
+					<p>justify-self and justify-items</p>
+					<p data-height="365" data-theme-id="0" data-slug-hash="jXZEXL" data-default-tab="css,result" data-user="mariatar" data-pen-title="Aligning Content Along Row Axis" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/jXZEXL/">Aligning Content Along Row Axis</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<h4>Aligning Content Along Column Axis</h4>
+					<p>align-self and align-items</p>
+					<p data-height="365" data-theme-id="0" data-slug-hash="REQwGQ" data-default-tab="css,result" data-user="mariatar" data-pen-title="Aligning Content Along Column Axis" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/REQwGQ/">Aligning Content Along Column Axis</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<h4>place-items</h4>
+					<p>place-items: align-items justify-items;</p>
+					<p data-height="265" data-theme-id="0" data-slug-hash="MZQara" data-default-tab="css,result" data-user="mariatar" data-pen-title="Aligning the Whole Grid with place-item" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/MZQara/">Aligning the Whole Grid with place-item</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<h4>Aligning the Whole Grid</h4>
+					<p>justify-content & align-content</p>
+					<p data-height="365" data-theme-id="0" data-slug-hash="ZVrYPo" data-default-tab="css,result" data-user="mariatar" data-pen-title="Aligning the Whole Grid" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/ZVrYPo/">Aligning the Whole Grid</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<h4>place-content</h4>
+					<p>place-content: align-content justify-content;</p>
+					<p data-height="365" data-theme-id="0" data-slug-hash="wRyKJR" data-default-tab="css,result" data-user="mariatar" data-pen-title="Aligning the Whole Grid with place-content" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/wRyKJR/">Aligning the Whole Grid with place-content</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<h4>The order Property in Grid Layout</h4>
+					<p data-height="365" data-theme-id="0" data-slug-hash="LMQEqo" data-default-tab="css,result" data-user="mariatar" data-pen-title="The order Property in Grid Layout" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/LMQEqo/">The order Property in Grid Layout</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+				</section>
+
+				<section>
+					<h4>explicit and implicit grid</h4>
+					<p>here will be slide for explicit-inplicit grid diff</p>
+				</section>
+				
+				<section>
+					<h3>Attention!</h3>
 					<div >First of all, Flexbox is about positioining and alignment element within container</div>
 					<div >Much more powerful than floats & tables, but for different use</div>
 				</section>
-
+				
 				<section>
 					<h3>Summary</h3>
 					<div  style="font-size:2em">
-						<span>Grids</span>
-						<span > + Flexbox</span>
-					</div>
-				</section>
-
-				<section>
-					<h2>Thanks!</h2>
-					<div><a href="mailto:Yevhen_Isakov@epam.com">Yevhen_Isakov@epam.com</a></div>
-				</section>
+							<span>Grids</span>
+							<span > + Flexbox</span>
+						</div>
+					</section>
+					
+					<section>
+						<h2>Thanks!</h2>
+						<div><a href="mailto:YMariia_Tarasiuk@epam.com">Mariia_Tarasiuk@epam.com</a></div>
+					</section>
 			</div>
 
 			<!--
@@ -669,7 +616,7 @@ order - https://codepen.io/vend3tta/pen/zRGXqG
 -->
 
 		</div>
-		<script async src="//production-assets.codepen.io/assets/embed/ei.js"></script>
+		<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 

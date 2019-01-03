@@ -1,3 +1,7 @@
+ul {
+	list-style: none !important;
+}
+
 .reveal h1 {
 	text-shadow: 0 2px 4px rgba(0,0,0,.5),
 				 0 -1px 3px rgba(0,0,0,.5);
@@ -5,6 +9,7 @@
 
 .reveal pre {
 	font-size: 0.7em !important;
+	box-sizing: border-box;
 }
 
 .slide-background {
@@ -37,6 +42,16 @@
 	height: 108px;
 	background: url(../assets/i/epam-logo_white.png) center no-repeat;
 	background-size: cover;
+}
+.mainpage body::after {
+	content: "10 January, 2019";
+	position: absolute;
+	right: 7%;
+	bottom: 5%;
+	font-family: "Oswald Regular";
+	font-size: 1.25em;
+	color: #fff;
+	white-space: nowrap;
 }
 
 .intro h3 {
