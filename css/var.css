@@ -1,0 +1,13 @@
+/*  colors */
+:root {
+  --font-main: #464547;
+  --primary: #39c2d7;
+  --primary-hover: #1a9cb0;
+  --secondary: #a3c644;
+  --secondary-hover: #7f993a;
+  --attention: #8e244d;
+  --attention-hover: #b22746;
+  --controls: #6b89c0;
+  --accent: #fd84b3;
+}
+
