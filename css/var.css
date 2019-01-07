@@ -1,0 +1,21 @@
+/*  colors */
+
+:root {
+  --font-main: #464547;
+  --primary: #39c2d7;
+  --primary-hover: #1a9cb0;
+  --primary-75: rgba(57, 194, 215, 0.75);
+  --primary-hover-75: rgba(26, 156, 176, 0.75);
+  --secondary: #a3c644;
+  --secondary-hover: #7f993a;
+  --secondary-75: rgba(163, 198, 68, 0.75);
+  --secondary-hover-75: rgba(127, 153, 58, 0.75);
+  --attention: #8e244d;
+  --attention-hover: #b22746;
+  --attention-75: rgba(142, 36, 77, 0.75);
+  --attention-hover-75: rgba(178, 39, 70, 0.75);
+  --controls: #6b89c0;
+  --controls-75: rgba(107, 137, 192, 0.75);
+  --accent: #fd84b3;
+}
+
