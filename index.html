@@ -152,11 +152,11 @@
 				<section>
 					<h3>z-index notes</h3>
 					<ul>
-						<li >Element with non-static positioning always will be above static element.</li>
-						<li >Element with <strong>positive</strong> z-index always will be above element without it.</li>
-						<li >On the same level the last element will be the highest one.</li>
-						<li >Lower amount of z-index elements is better.</li>
-						<li >In most cases you actually <strong>do not</strong> need z-index.</li>
+						<li class="fragment">Element with non-static positioning always will be above static element.</li>
+						<li class="fragment">Element with <strong>positive</strong> z-index always will be above element without it.</li>
+						<li class="fragment">On the same level the last element will be the highest one.</li>
+						<li class="fragment">Lower amount of z-index elements is better.</li>
+						<li class="fragment">In most cases you actually <strong>do not</strong> need z-index.</li>
 					</ul>
 				</section>
 				<section>
@@ -250,33 +250,6 @@
 				</section>
 
 				<section>
-					<div class="section-subtitle">More tips & tricks</div>
-				</section>
-
-				<section>
-					<div class="section-subtitle">overflow: hidden</div>
-					<p data-height="265" data-theme-id="0" data-slug-hash="zyjgYv" data-default-tab="css,result" data-user="mariatar" data-pen-title="float" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/zyjgYv/">float</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-					<p data-height="265" data-theme-id="0" data-slug-hash="BvxXQG" data-default-tab="css,result" data-user="mariatar" data-pen-title="overflow: hidden" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/BvxXQG/">overflow: hidden</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-				</section>
-
-				<section>
-					<div class="section-subtitle">overflow: hidden</div>
-					<p data-height="365" data-theme-id="0" data-slug-hash="XoqvdX" data-default-tab="css,result" data-user="mariatar" data-pen-title="overflow collaps" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/XoqvdX/">overflow collaps</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-				</section>
-
-				<section>
-					<div class="section-subtitle">display: table</div>
-					<p data-height="265" data-theme-id="0" data-slug-hash="zyjgYv" data-default-tab="css,result" data-user="mariatar" data-pen-title="float" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/zyjgYv/">float</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-					<p data-height="300" data-theme-id="0" data-slug-hash="XoqvWb" data-default-tab="css,result" data-user="mariatar" data-pen-title="float and table" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/XoqvWb/">float and table</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-				</section>
-
-				<section>
-					<div class="section-subtitle">display: table</div>
-					<div data-height="265" data-theme-id="0" data-slug-hash="wRjLyy" data-default-tab="css,result" data-user="mariatar" data-pen-title="float fix by table #1" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/wRjLyy/">float fix by table #1</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-					<div data-height="300" data-theme-id="0" data-slug-hash="maLZQM" data-default-tab="css,result" data-user="mariatar" data-pen-title="fix float by table #2" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/maLZQM/">fix float by table #2</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</div>
-				</section>
-
-				<section>
 					<h3>But!</h3>
 					<div>sooooo much unsolved troubles left in CSS...</div>
 				</section>
@@ -289,6 +262,8 @@
 					<h2><span class="coloured-symbols coloured-symbols_blue">Flex</span>box</h2>
 				</section>
 				<section>
+					<h4>Spec & Browser Support</h4>
+					<a href="https://www.w3.org/TR/css-flexbox-1/" target="_blank" rel="noopener noreferrer">CSS Flexible Box Layout Module Level 1</a>
 					<img src="./assets/i/caniuse_flex.png" alt="" srcset="">
 				</section>
 
@@ -360,25 +335,15 @@
 					<h2>Grid</h2>
 				</section>
 				<section>
+					<h4>Spec & Browser Support</h4>
+					<a href="https://www.w3.org/TR/css-grid-1/" target="_blank" rel="noopener noreferrer">CSS Grid Layout Module Level 1</a>
+					<a href="https://www.w3.org/TR/css-grid-2/" target="_blank" rel="noopener noreferrer">CSS Grid Layout Module Level 2(SUBGRID DRAFT)</a>
 					<img src="./assets/i/caniuse_grid.png" alt="" sizes="">
 				</section>
 				
 				<section>
 					<h4>Basic grid terminology</h4>
-					<!-- <div style="margin: 0 auto; width: 50%">
-							<ul>
-								<li class="fragment">grid container</li>
-								<li class="fragment">element</li>
-								<li class="fragment">line</li>
-								<li class="fragment">track</li>
-								<li class="fragment">area</li>
-								<li class="fragment">cell</li>
-								<li class="fragment">fraction [fr] </li>
-							</ul>
-						</div>
-					</section>
-					<section> -->
-						<img src="assets/i/grid.png" alt="">
+						<img src="assets/i/grid.png" alt="grid model">
 					</section>
 
 				<section>
@@ -430,12 +395,12 @@
 					<p>justify-content & align-content</p>
 					<p data-height="465" data-theme-id="0" data-slug-hash="ZVrYPo" data-default-tab="css,result" data-user="mariatar" data-pen-title="Aligning the Whole Grid" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/ZVrYPo/">Aligning the Whole Grid</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 				</section>
-
+<!-- 
 				<section>
 					<h4>place-content</h4>
 					<p>place-content: align-content justify-content;</p>
 					<p data-height="465" data-theme-id="0" data-slug-hash="wRyKJR" data-default-tab="css,result" data-user="mariatar" data-pen-title="Aligning the Whole Grid with place-content" class="codepen">See the Pen <a href="https://codepen.io/mariatar/pen/wRyKJR/">Aligning the Whole Grid with place-content</a> by Maria (<a href="https://codepen.io/mariatar">@mariatar</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-				</section>
+				</section> -->
 
 				<section>
 					<h4>The order property in Grid Layout</h4>
