@@ -46,7 +46,7 @@ ul {
 	background-size: cover;
 }
 .mainpage body::after {
-	content: "10 January, 2019";
+	content: "5 June, 2019";
 	position: absolute;
 	right: 7%;
 	bottom: 5%;
